@@ -3,13 +3,17 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const requiredFiles = ["index.html", "tsconfig.json", "src/main.jsx", "src/App.jsx", "src/styles.css", "public/robots.txt", "public/sitemap.xml"];
-const requiredAssets = [
+const requiredGeneratedAssets = [
   "public/assets/temperance-hero-poster.png",
   "public/assets/temperance-runtime-panel.png",
   "public/assets/temperance-guarded-runtime.png",
   "public/assets/temperance-evidence-loop.png",
   "public/assets/temperance-codegraph-map.png",
   "public/assets/temperance-rollback-posture.png",
+];
+const requiredAssets = [
+  "public/og/temperance-engine-og.png",
+  ...requiredGeneratedAssets,
   "public/brand/thoughtseed-logo-lockup.png",
   "public/brand/thoughtseed-mark.png",
 ];
@@ -42,11 +46,12 @@ checks.push(
   { label: "html defines canonical Thoughtseed URL", pass: html.includes('rel="canonical"') && html.includes("https://thoughtseed.space/temperance-engine/") },
   { label: "html defines SEO robots metadata", pass: html.includes('name="robots"') && html.includes("max-image-preview:large") },
   { label: "html defines OG metadata", pass: html.includes('property="og:title"') && html.includes('property="og:image"') && html.includes('og:image:width') && html.includes('og:image:height') },
-  { label: "html defines Twitter metadata", pass: html.includes('name="twitter:card"') && html.includes('name="twitter:site"') && html.includes('name="twitter:url"') },
+  { label: "html defines share-card image", pass: html.includes("https://thoughtseed.space/temperance-engine/og/temperance-engine-og.png") && html.includes('property="og:image:secure_url"') && html.includes('content="1200"') && html.includes('content="630"') },
+  { label: "html defines Twitter metadata", pass: html.includes('name="twitter:card"') && html.includes('name="twitter:site"') && html.includes('name="twitter:url"') && html.includes('name="twitter:image:alt"') },
   { label: "html defines JSON-LD schema", pass: html.includes('application/ld+json') && html.includes('SoftwareApplication') && html.includes('Thoughtseed') },
   { label: "robots points at Thoughtseed sitemap", pass: robots.includes("Sitemap: https://thoughtseed.space/temperance-engine/sitemap.xml") },
   { label: "sitemap lists canonical Temperance page", pass: sitemap.includes("<loc>https://thoughtseed.space/temperance-engine/</loc>") },
-  { label: "footer attributes work to Thoughtseed", pass: app.includes("Done by Thoughtseed") && app.includes("thoughtseed.space") && app.includes("/brand/thoughtseed-logo-lockup.png") && app.includes("/brand/thoughtseed-mark.png") },
+  { label: "footer attributes work to Thoughtseed", pass: app.includes("Done by Thoughtseed") && app.includes("thoughtseed.space") && app.includes("/brand/thoughtseed-logo-lockup.png") },
   { label: "hero links to public GitHub repo", pass: app.includes("https://github.com/Sheshiyer/temperance_engine") },
   { label: "hero names safer inference loop", pass: app.includes("A safer inference loop for your machine") },
   { label: "copy explains one-time installer", pass: app.includes("one-time installer") && app.includes("guarded PAI templates") },
@@ -59,7 +64,7 @@ checks.push(
   { label: "copy explains rollback posture", pass: app.includes("Rollback") && app.includes("rollback") },
   { label: "copy removed visible design-reference scaffolding", pass: !app.includes("MotionSites") && !app.includes("Design reference") && !app.includes("Second pass standard") && !app.includes("beautiful motionsites") },
   { label: "hero uses requested CloudFront MP4", pass: app.includes("hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4") && app.includes("heroVideoUrl") },
-  { label: "supporting media uses local generated image assets", pass: requiredAssets.every((file) => app.includes(file.replace("public", ""))) },
+  { label: "supporting media uses local generated image assets", pass: requiredGeneratedAssets.every((file) => app.includes(file.replace("public", ""))) },
   { label: "supporting media avoids borrowed remote image domains", pass: !app.includes("res.cloudinary.com") && !app.includes("images.higgs.ai") && !app.includes("image.mux.com") && !app.includes("motionsites.ai/assets") && !app.includes("stream.mux.com") && !app.includes("video_preview_url") },
   { label: "supporting media avoids retired remote asset ids", pass: !app.includes("hf_20260515_092045") && !app.includes("hf_20260515_092102") && !app.includes("hf_20260528_154759") && !app.includes("hf_20260603_073200") },
   { label: "html preconnects only required remote media origin", pass: !html.includes("https://res.cloudinary.com") && !html.includes("https://images.higgs.ai") && html.includes("https://d8j0ntlcm91z4.cloudfront.net") },

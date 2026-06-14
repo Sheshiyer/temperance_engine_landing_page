@@ -754,14 +754,6 @@ h3 {
   text-decoration: none;
 }
 
-.footer-mark {
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  object-fit: cover;
-  filter: invert(1) brightness(1.9) contrast(0.86);
-}
-
 .footer-lockup {
   width: min(220px, 34vw);
   height: auto;

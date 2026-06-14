@@ -567,7 +567,6 @@ function App() {
         <footer className="site-footer liquid-glass" aria-label="Thoughtseed attribution">
           <a className="footer-brand" href={thoughtseedUrl} target="_blank" rel="noreferrer" aria-label="Visit Thoughtseed">
             <img className="footer-lockup" src="/brand/thoughtseed-logo-lockup.png" alt="Thoughtseed logo" loading="lazy" />
-            <img className="footer-mark" src="/brand/thoughtseed-mark.png" alt="Thoughtseed mark" loading="lazy" />
           </a>
           <div className="footer-copy">
             <span>Done by Thoughtseed.</span>
