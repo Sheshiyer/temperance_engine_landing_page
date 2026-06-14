@@ -11,8 +11,8 @@ const heroVideoUrl = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOtt
 const heroPosterUrl = "/assets/temperance-hero-poster.png";
 const runtimePanelUrl = "/assets/temperance-runtime-panel.png";
 
-const BG_IMAGE_1 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_195923_b0ba8ace-1d1d-4f2c-9a28-1ab84b330680.png&w=1280&q=85";
-const BG_IMAGE_2 = "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_201152_bba90a12-bf12-459f-91f0-51f237dbaf3b.png&w=1280&q=85";
+const BG_IMAGE_1 = "/assets/temperance-codegraph-map.png";
+const BG_IMAGE_2 = "/assets/temperance-evidence-loop.png";
 const SPOTLIGHT_R = 260;
 
 const capabilityCards = [
@@ -408,7 +408,7 @@ function App() {
         <nav className="topbar liquid-glass" aria-label="Primary navigation" style={{ zIndex: 100 }}>
           <a className="brand-mark" href="#top" aria-label="Temperance Engine home">
             <span className="brand-sigil" style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>L</span>
-            <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Lithos</span>
+            <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Temperance Engine</span>
           </a>
           <div className="nav-links">
             <a href="#runtime">Runtime</a>
@@ -545,6 +545,7 @@ function App() {
         <footer className="site-footer liquid-glass" aria-label="Thoughtseed attribution">
           <a className="footer-brand" href={thoughtseedUrl} target="_blank" rel="noreferrer" aria-label="Visit Thoughtseed">
             <img className="footer-lockup" src="/brand/thoughtseed-logo-lockup.png" alt="Thoughtseed logo" loading="lazy" />
+            <img className="footer-mark" src="/brand/thoughtseed-mark.png" alt="Thoughtseed mark" loading="lazy" />
           </a>
           <div className="footer-copy">
             <span>Done by Thoughtseed.</span>

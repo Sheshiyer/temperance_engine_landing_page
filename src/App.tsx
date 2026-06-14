@@ -160,7 +160,7 @@ function App() {
               <path d="M 256 256 L 128 256 L 0 128 L 128 128 Z M 256 128 L 128 128 L 0 0 L 128 0 Z" />
             </svg>
             <span className="text-white text-2xl font-playfair italic">
-              Lithos
+              Temperance Engine
             </span>
           </div>
 
