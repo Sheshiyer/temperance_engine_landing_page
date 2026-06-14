@@ -9,7 +9,6 @@ const githubUrl = "https://github.com/Sheshiyer/temperance_engine";
 const thoughtseedUrl = "https://thoughtseed.space";
 const heroVideoUrl = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4";
 const heroPosterUrl = "/assets/temperance-hero-poster.png";
-const runtimePanelUrl = "/assets/temperance-runtime-panel.png";
 
 const BG_IMAGE_1 = "/assets/temperance-codegraph-map.png";
 const BG_IMAGE_2 = "/assets/temperance-evidence-loop.png";
@@ -66,7 +65,33 @@ const collectedAssets = [
   },
 ];
 
-const trailAssets = collectedAssets;
+const trailAssets = [
+  {
+    title: "Backup snapshot",
+    type: "Before write",
+    src: "/assets/temperance-rollback-posture.png",
+  },
+  {
+    title: "CodeGraph route",
+    type: "Search path",
+    src: "/assets/temperance-codegraph-map.png",
+  },
+  {
+    title: "Skill resolver",
+    type: "Capability map",
+    src: "/assets/temperance-runtime-panel.png",
+  },
+  {
+    title: "Verify evidence",
+    type: "Safety check",
+    src: "/assets/temperance-evidence-loop.png",
+  },
+  {
+    title: "Guarded template",
+    type: "Runtime surface",
+    src: "/assets/temperance-guarded-runtime.png",
+  },
+];
 
 const installSteps = [
   ["01", "Review", "Read the public scripts, docs, credits, and touched config surfaces before install."],
@@ -261,7 +286,7 @@ function CursorConstellation() {
         x: event.clientX - rect.left,
         y: event.clientY - rect.top,
         createdAt: now,
-        asset: trailAssets[marks.length % trailAssets.length].src,
+        asset: trailAssets[marks.length % trailAssets.length],
         rotation: (Math.random() - 0.5) * 18,
       },
     ]);
@@ -270,22 +295,27 @@ function CursorConstellation() {
   return (
     <div ref={fieldRef} className="constellation-panel liquid-glass" onPointerMove={handlePointerMove}>
       <div className="constellation-copy">
-        <span>Generated asset trail</span>
-        <strong>Move here.</strong>
-        <p>The motion layer stays decorative; the product story stays about runtime control.</p>
+        <span>Runtime proof field</span>
+        <strong>Trace evidence.</strong>
+        <p>Move through the grid to surface the evidence Temperance Engine wants before local agent work: backups, CodeGraph routes, skill routing, and verify logs.</p>
       </div>
       {trailMarks.map((mark) => (
-        <img
+        <figure
           key={mark.id}
           className="trail-mark"
-          src={mark.asset}
-          alt=""
+          aria-hidden="true"
           style={{
             left: mark.x,
             top: mark.y,
             transform: `translate(-50%, -50%) rotate(${mark.rotation}deg)`,
           }}
-        />
+        >
+          <img src={mark.asset.src} alt="" />
+          <figcaption>
+            <span>{mark.asset.type}</span>
+            <strong>{mark.asset.title}</strong>
+          </figcaption>
+        </figure>
       ))}
     </div>
   );
@@ -433,14 +463,6 @@ function App() {
             <a className="button ghost" href="#install">See install path</a>
           </div>
         </div>
-
-        <aside className="portrait-card liquid-glass" aria-label="Temperance Engine operating panel" style={{ zIndex: 60 }}>
-          <img src={runtimePanelUrl} alt="Temperance Engine generated runtime panel" />
-          <div className="portrait-copy">
-            <span style={{ color: "#e8702a" }}>Runtime condition</span>
-            <strong>Local-first. Backup-first. Verification-first.</strong>
-          </div>
-        </aside>
       </section>
 
       <section id="runtime" className="reference-section">

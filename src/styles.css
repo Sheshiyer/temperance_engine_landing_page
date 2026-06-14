@@ -205,10 +205,10 @@ main {
   z-index: 5;
   display: flex;
   min-height: calc(100vh - 124px);
-  max-width: 860px;
+  max-width: 700px;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(54px, 8vw, 108px) 0 42px;
+  padding: clamp(42px, 7vw, 96px) 0 42px;
 }
 
 .eyebrow {
@@ -247,17 +247,17 @@ h2 {
 
 h1 {
   max-width: 11.5ch;
-  margin-bottom: 22px;
-  font-size: clamp(3.7rem, 7.4vw, 7rem);
-  line-height: 0.9;
+  margin-bottom: 18px;
+  font-size: clamp(3.05rem, 6.1vw, 5.75rem);
+  line-height: 0.94;
   text-wrap: balance;
 }
 
 h2 {
   max-width: 760px;
-  margin-bottom: 22px;
-  font-size: clamp(2.35rem, 4.8vw, 4.35rem);
-  line-height: 1;
+  margin-bottom: 18px;
+  font-size: clamp(2.05rem, 4vw, 3.5rem);
+  line-height: 1.03;
   text-wrap: balance;
 }
 
@@ -273,8 +273,8 @@ h3 {
 .closing-copy p {
   max-width: 62ch;
   color: var(--cream-dim);
-  font-size: clamp(1.04rem, 1.22vw, 1.18rem);
-  line-height: 1.58;
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  line-height: 1.52;
 }
 
 .hero-subtitle {
@@ -282,7 +282,7 @@ h3 {
 }
 
 .type-line {
-  min-height: 64px;
+  min-height: 54px;
   margin-bottom: 22px;
   color: rgba(244, 235, 214, 0.86);
 }
@@ -332,39 +332,6 @@ h3 {
   background: rgba(255, 255, 255, 0.045);
 }
 
-.portrait-card {
-  position: absolute;
-  right: clamp(18px, 6vw, 90px);
-  bottom: clamp(28px, 5vw, 72px);
-  z-index: 6;
-  width: min(390px, 30vw);
-  min-width: 300px;
-  padding: 12px;
-  border-radius: 34px;
-  transform: translate3d(var(--parallax-x), var(--parallax-y), 0) rotate(-2deg);
-}
-
-.portrait-card img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 24px;
-  filter: saturate(0.9) contrast(1.08);
-}
-
-.portrait-copy {
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  left: 24px;
-  padding: 18px;
-  border-radius: 22px;
-  background: rgba(5, 5, 5, 0.72);
-  backdrop-filter: blur(16px);
-}
-
-.portrait-copy span,
 .asset-card span,
 .constellation-copy span,
 .media-card span {
@@ -375,16 +342,6 @@ h3 {
   font-weight: 900;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.portrait-copy strong {
-  display: block;
-  max-width: 12ch;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  font-weight: 400;
-  line-height: 0.92;
-  letter-spacing: -0.055em;
 }
 
 .reference-section,
@@ -691,7 +648,7 @@ h3 {
   bottom: 28px;
   left: 28px;
   z-index: 3;
-  max-width: 430px;
+  max-width: 500px;
   padding: 22px;
   border-radius: 26px;
   background: rgba(5, 5, 5, 0.7);
@@ -701,23 +658,57 @@ h3 {
 .constellation-copy strong {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 400;
-  line-height: 0.82;
+  line-height: 0.88;
   letter-spacing: -0.06em;
 }
 
 .trail-mark {
   position: absolute;
   z-index: 2;
-  width: 120px;
-  height: 76px;
-  object-fit: cover;
+  width: 164px;
+  margin: 0;
+  overflow: hidden;
+  padding: 6px;
   pointer-events: none;
   border: 1px solid rgba(244, 235, 214, 0.24);
   border-radius: 18px;
+  background: rgba(5, 5, 5, 0.76);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(14px);
   animation: trailFade 1100ms ease-out forwards;
+}
+
+.trail-mark img {
+  display: block;
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: saturate(0.9) contrast(1.04);
+}
+
+.trail-mark figcaption {
+  padding: 7px 5px 3px;
+}
+
+.trail-mark span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--green);
+  font-size: 0.56rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.trail-mark strong {
+  display: block;
+  color: var(--cream);
+  font-size: 0.78rem;
+  line-height: 1.08;
 }
 
 .closing-copy {
@@ -955,8 +946,11 @@ h3 {
   }
 
   .trail-mark {
-    width: 92px;
-    height: 60px;
+    width: 132px;
+  }
+
+  .trail-mark img {
+    height: 56px;
   }
 
   .footer-brand {
