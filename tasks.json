@@ -1,0 +1,132 @@
+{
+  "tasks": [
+    {
+      "id": "T1",
+      "name": "font-acquisition",
+      "status": "completed",
+      "wave": 1,
+      "combo": "te-swarm-s",
+      "description": "Download Inter (400/500/600 woff2) and Urbanist variable (woff2). Place in public/assets/fonts/.",
+      "acceptance": "4 woff2 files exist, each loads in @font-face test",
+      "parallel": true
+    },
+    {
+      "id": "T2",
+      "name": "html-structure",
+      "status": "completed",
+      "wave": 1,
+      "combo": "te-dispatch-paid",
+      "description": "Create new index.html with nav, hero (video + wipe-mask headline + subcopy + CTA), features (headline + 3 cards with inline SVGs). All CSS/JS inlined.",
+      "acceptance": "page renders two full-viewport sections, no external deps",
+      "parallel": true
+    },
+    {
+      "id": "T3",
+      "name": "svg-diagrams",
+      "status": "completed",
+      "wave": 1,
+      "combo": "te-swarm-s",
+      "description": "Create 3 inline SVGs: stacked plates (card1), converging sources (card2, inverted), crosshair nodes (card3). Each element has data-ambient + amplitude class.",
+      "acceptance": "SVGs render inline, correct data-ambient + amplitude classes",
+      "parallel": true
+    },
+    {
+      "id": "T4",
+      "name": "css-foundation",
+      "status": "completed",
+      "wave": 1,
+      "combo": "te-dispatch-paid",
+      "description": "Complete CSS: custom properties, @font-face, reset, nav/hero/features/card styles, responsive 720px, prefers-reduced-motion, amplitude classes verbatim.",
+      "acceptance": "fonts load, responsive at 375px and 1440px, all custom properties resolve",
+      "parallel": true
+    },
+    {
+      "id": "T5",
+      "name": "hero-animation",
+      "status": "completed",
+      "wave": 2,
+      "combo": "te-dispatch-paid",
+      "description": "Hero entrance WAAPI: nav lift, headline wipe lines, subcopy fade, CTA fade. Reduced-motion guard.",
+      "acceptance": "sequential entrance fires on load; reduced-motion skips all",
+      "parallel": false,
+      "blocked_by": ["T2", "T4"]
+    },
+    {
+      "id": "T6",
+      "name": "section2-animation",
+      "status": "completed",
+      "wave": 2,
+      "combo": "te-dispatch-paid",
+      "description": "Reel(), actTwo(), armAmbient() verbatim. IntersectionObserver at 22%, one-shot entrance, hover ambient play/reverse.",
+      "acceptance": "scroll triggers one-shot; hover plays ambient; leave reverses",
+      "parallel": false,
+      "blocked_by": ["T2", "T3", "T4"]
+    },
+    {
+      "id": "T7",
+      "name": "hero-video",
+      "status": "completed",
+      "wave": 2,
+      "combo": "te-swarm-s",
+      "description": "Wire video element: preload, autoplay muted loop playsinline, object-fit cover, position right center. New CloudFront URL. Under navbar.",
+      "acceptance": "video autoplays muted, loops, fills right side, hidden under navbar",
+      "parallel": false,
+      "blocked_by": ["T2"]
+    },
+    {
+      "id": "T8",
+      "name": "old-code-cleanup",
+      "status": "completed",
+      "wave": 3,
+      "combo": "te-swarm-s",
+      "description": "Remove src/App.jsx, App.tsx, main.jsx, main.tsx, styles.css. Strip React/GSAP/Tailwind deps from package.json. Update vite.config for static HTML.",
+      "acceptance": "npm install succeeds, vite preview serves new index.html",
+      "parallel": true,
+      "blocked_by": ["T5", "T6", "T7"]
+    },
+    {
+      "id": "T9",
+      "name": "asset-verification",
+      "status": "completed",
+      "wave": 3,
+      "combo": "te-swarm-s",
+      "description": "Verify all referenced assets exist: brand marks, PNGs, fonts. Zero 404s.",
+      "acceptance": "zero 404s in browser network tab",
+      "parallel": true,
+      "blocked_by": ["T2", "T3"]
+    },
+    {
+      "id": "T10",
+      "name": "isa-update",
+      "status": "completed",
+      "wave": 3,
+      "combo": "te-swarm-s",
+      "description": "Update ISA.md: replace GSAP refs with WAAPI, update sections/fonts/video, add new ISCs.",
+      "acceptance": "ISA.md accurately describes current page state",
+      "parallel": true,
+      "blocked_by": []
+    },
+    {
+      "id": "T11",
+      "name": "browser-verify",
+      "status": "completed",
+      "wave": 4,
+      "combo": "te-dispatch-paid",
+      "description": "Playwright screenshots desktop+mobile, console zero errors, reduced-motion verified.",
+      "acceptance": "4 screenshots, zero errors, reduced-motion verified",
+      "parallel": false,
+      "blocked_by": ["T8", "T9"]
+    },
+    {
+      "id": "T12",
+      "name": "build-verify",
+      "status": "completed",
+      "wave": 4,
+      "combo": "te-dispatch-paid",
+      "description": "npm run build passes, dist/ correct, zero external CDN requests.",
+      "acceptance": "clean build, zero external requests",
+      "parallel": false,
+      "blocked_by": ["T8"]
+    }
+  ]
+}

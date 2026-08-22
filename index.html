@@ -1,81 +1,557 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temperance Engine | Done by Thoughtseed</title>
-    <meta
-      name="description"
-      content="Temperance Engine is a local-first operator runtime by Thoughtseed for guarded AI-agent setup, CodeGraph routing, skill discovery, and verification-first work."
-    />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="author" content="Thoughtseed" />
-    <meta name="publisher" content="Thoughtseed" />
-    <meta name="keywords" content="Temperance Engine, Thoughtseed, thoughtseed.space, local AI runtime, PAI templates, CodeGraph, skill clusters, agent verification" />
-    <meta name="theme-color" content="#050505" />
-    <link rel="canonical" href="https://thoughtseed.space/temperance-engine/" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050505'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23e1bd6b' stroke-width='3'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial, sans-serif' font-size='18' font-weight='700' fill='%23e1bd6b'%3ETE%3C/text%3E%3C/svg%3E" />
-    <link rel="apple-touch-icon" href="/brand/thoughtseed-mark.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://db.onlinewebfonts.com" />
-    <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_IN" />
-    <meta property="og:site_name" content="Thoughtseed" />
-    <meta property="og:title" content="Temperance Engine | Done by Thoughtseed" />
-    <meta property="og:description" content="A local-first operator runtime by Thoughtseed for guarded AI-agent setup, CodeGraph routing, skill discovery, and verification-first work." />
-    <meta property="og:url" content="https://thoughtseed.space/temperance-engine/" />
-    <meta property="og:image" content="https://thoughtseed.space/temperance-engine/og/temperance-engine-og.png" />
-    <meta property="og:image:secure_url" content="https://thoughtseed.space/temperance-engine/og/temperance-engine-og.png" />
-    <meta property="og:image:alt" content="Temperance Engine social preview artwork for the Thoughtseed-built local AI operator runtime" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Thoughtseed11" />
-    <meta name="twitter:creator" content="@Thoughtseed11" />
-    <meta name="twitter:title" content="Temperance Engine | Done by Thoughtseed" />
-    <meta name="twitter:description" content="A local-first operator runtime by Thoughtseed for guarded AI-agent setup, CodeGraph routing, skill discovery, and verification-first work." />
-    <meta name="twitter:image" content="https://thoughtseed.space/temperance-engine/og/temperance-engine-og.png" />
-    <meta name="twitter:image:alt" content="Temperance Engine social preview artwork for the Thoughtseed-built local AI operator runtime" />
-    <meta name="twitter:url" content="https://thoughtseed.space/temperance-engine/" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://thoughtseed.space/#organization",
-            "name": "Thoughtseed",
-            "url": "https://thoughtseed.space/",
-            "logo": "https://thoughtseed.space/temperance-engine/brand/thoughtseed-logo-lockup.png"
-          },
-          {
-            "@type": "SoftwareApplication",
-            "@id": "https://thoughtseed.space/temperance-engine/#software",
-            "name": "Temperance Engine",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "macOS, Linux",
-            "url": "https://thoughtseed.space/temperance-engine/",
-            "creator": { "@id": "https://thoughtseed.space/#organization" },
-            "description": "Temperance Engine is a local-first operator runtime by Thoughtseed for guarded AI-agent instructions, CodeGraph routing, skill-cluster discovery, and verification-first work."
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://thoughtseed.space/temperance-engine/",
-            "url": "https://thoughtseed.space/temperance-engine/",
-            "name": "Temperance Engine | Done by Thoughtseed",
-            "isPartOf": { "@id": "https://thoughtseed.space/#website" },
-            "about": { "@id": "https://thoughtseed.space/temperance-engine/#software" },
-            "publisher": { "@id": "https://thoughtseed.space/#organization" }
-          }
-        ]
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperance Engine — Where Systems Become Intelligence</title>
+<meta name="description" content="Temperance Engine is the installable inference runtime that routes, guards, and verifies every AI-assisted edit before it touches your codebase.">
+<link rel="icon" type="image/png" href="/brand/te-mark.png">
+<style>
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: #000; color: #fff; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { background: none; border: none; color: inherit; cursor: pointer; font: inherit; }
+img, video { display: block; max-width: 100%; }
+
+/* ── Fonts ─────────────────────────────────────────── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('assets/fonts/Inter-Variable.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('assets/fonts/Urbanist-Variable.woff2') format('woff2');
+}
+
+/* ── Custom Properties ─────────────────────────────── */
+:root {
+  --black: #000;
+  --bg: #0A0A0A;
+  --card: #111;
+  --white: #fff;
+  --gray: #9CA3AF;
+  --border: #1F1F1F;
+  --nav-h: 56px;
+  --font-hero: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-section: 'Urbanist', system-ui, -apple-system, sans-serif;
+  --ease-lines: cubic-bezier(.16, 1, .3, 1);
+  --ease-lifts: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* ── Nav ───────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--black);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 48px);
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.nav__brand {
+  display: flex; align-items: center; gap: 10px;
+}
+.nav__mark {
+  width: 32px; height: 32px;
+  border-radius: 6px;
+}
+.nav__wordmark {
+  font-family: var(--font-hero);
+  font-weight: 600; font-size: 15px;
+  letter-spacing: -0.02em;
+}
+.nav__links {
+  display: flex; gap: 28px;
+  font-family: var(--font-hero);
+  font-weight: 400; font-size: 14px;
+  color: var(--gray);
+}
+.nav__links a:hover { color: var(--white); }
+.nav__login {
+  font-family: var(--font-hero);
+  font-weight: 500; font-size: 14px;
+  color: var(--gray);
+  transition: color 0.2s;
+}
+.nav__login:hover { color: var(--white); }
+
+@media (max-width: 720px) {
+  .nav__links { display: none; }
+}
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%; height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex; align-items: center;
+}
+.hero__video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: 0;
+}
+.hero__overlay {
+  position: relative; z-index: 1;
+  padding: 0 clamp(24px, 6vw, 80px);
+  padding-top: var(--nav-h);
+  max-width: 560px;
+  display: flex; flex-direction: column;
+  gap: 20px;
+}
+.hero__headline {
+  font-family: var(--font-hero);
+  font-weight: 600;
+  font-size: clamp(36px, 5.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.hero__headline .line-wrap {
+  display: block;
+  overflow: hidden;
+}
+.hero__headline .line {
+  display: block;
+  transform: translateY(118%);
+  will-change: transform;
+}
+.hero__sub {
+  font-family: var(--font-hero);
+  font-weight: 400;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.6;
+  color: var(--gray);
+  max-width: 440px;
+  opacity: 0;
+}
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-hero);
+  font-weight: 600; font-size: 15px;
+  border-radius: 8px;
+  width: fit-content;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: background 0.2s, transform 0.2s;
+}
+.hero__cta:hover {
+  background: #E5E7EB;
+  transform: translateY(0) scale(1.02);
+}
+.hero__cta svg {
+  width: 16px; height: 16px;
+}
+
+/* ── Features ──────────────────────────────────────── */
+.features {
+  width: 100%; min-height: 100vh;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(60px, 10vh, 120px) clamp(20px, 4vw, 48px);
+  gap: clamp(40px, 6vh, 72px);
+}
+.features__headline {
+  font-family: var(--font-section);
+  font-weight: 700;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-align: center;
+  max-width: 700px;
+}
+.features__headline .line-wrap {
+  display: block;
+  overflow: hidden;
+}
+.features__headline .line {
+  display: block;
+  transform: translateY(118%);
+  will-change: transform;
+}
+.features__grid {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  justify-content: center;
+}
+/* Cards are visible by default — JS adds .js-loading to <body>
+   before observer wires up, and removes it after the entrance fires
+   (or immediately for reduced-motion / no-JS). Defends against
+   IntersectionObserver edge cases where the section never reaches 22%
+   threshold (e.g. screenshot tools that never scroll). */
+.card {
+  flex: 1;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 36px);
+  display: flex; flex-direction: column;
+  gap: 20px;
+  will-change: transform, opacity;
+  min-width: 0;
+}
+
+/* Only hide before entrance when JS is in control */
+body.js-loading .card {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.card__copy {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.card__title {
+  font-family: var(--font-section);
+  font-weight: 700; font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.card__desc {
+  font-family: var(--font-hero);
+  font-weight: 400; font-size: 14px;
+  line-height: 1.6;
+  color: var(--gray);
+}
+.card__diagram {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 140px;
+}
+.card__diagram svg {
+  width: 100%; max-width: 220px;
+  height: auto;
+}
+
+/* Card 2 inverted: copy above art */
+.card--inverted {
+  flex-direction: column-reverse;
+}
+
+@media (max-width: 720px) {
+  .features__grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card { max-width: 400px; width: 100%; }
+}
+
+/* ── Ambient animation amplitude classes ───────────── */
+.d-plate-a{--ay:9.6px;--t:2.9s}
+.d-plate-b{--ay:6.9px;--t:3.4s}
+.d-plate-c{--ay:4.2px;--t:3.9s}
+.d-plate-d{--ay:2.1px;--t:4.6s}
+.d-src-t{--ax:1.5px;  --ay:7.65px;--t:3.6s}
+.d-src-l{--ax:9px;    --ay:0.45px;--t:3.1s}
+.d-src-r{--ax:-7.29px;--ay:-4.17px;--t:4.2s}
+.d-node-t{--ay:5.4px; --t:3.3s}
+.d-node-b{--ay:-5.1px;--t:4.3s}
+.d-node-l{--ax:6.3px; --t:3s}
+.d-node-r{--ax:-6px;  --t:3.8s}
+
+/* ── Reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero__headline .line,
+  .features__headline .line {
+    transform: none !important;
+  }
+  .hero__sub, .hero__cta, .card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+</style>
+</head>
+<body class="js-loading">
+
+<!-- ── Nav ──────────────────────────────────────────── -->
+<nav class="nav" data-animate="lift">
+  <div class="nav__brand">
+    <img class="nav__mark" src="brand/te-mark.png" alt="Temperance Engine" width="32" height="32">
+    <span class="nav__wordmark">Temperance Engine</span>
+  </div>
+  <div class="nav__links">
+    <a href="#product">Product</a>
+    <a href="#use-cases">Use Cases</a>
+    <a href="https://github.com/noesisX/Temperance-Engine" target="_blank" rel="noopener">Docs</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <button class="nav__login" data-animate="lift">Log In</button>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────── -->
+<section class="hero" id="product">
+  <video
+    class="hero__video"
+    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_114341_c6166862-328b-45ae-b0c0-49fa977875a1.mp4"
+    preload="auto"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
+  <div class="hero__overlay">
+    <h1 class="hero__headline">
+      <span class="line-wrap"><span class="line">Where Systems</span></span>
+      <span class="line-wrap"><span class="line">Become Intelligence</span></span>
+    </h1>
+    <p class="hero__sub">
+      Temperance Engine is the installable inference runtime that routes, guards,
+      and verifies every AI-assisted edit before it touches your codebase.
+    </p>
+    <a class="hero__cta" href="https://github.com/noesisX/Temperance-Engine" target="_blank" rel="noopener">
+      Get Started
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ── Features ─────────────────────────────────────── -->
+<section class="features" id="use-cases">
+  <h2 class="features__headline">
+    <span class="line-wrap"><span class="line">Build Systems That</span></span>
+    <span class="line-wrap"><span class="line">Think, Not Just React</span></span>
+  </h2>
+
+  <div class="features__grid">
+
+    <!-- Card 1: Adaptive Intelligence — stacked plates -->
+    <div class="card" data-card="adaptive">
+      <div class="card__diagram">
+        <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse class="d-plate-d" data-ambient cx="100" cy="128" rx="72" ry="18" fill="#333" opacity="0.5"/>
+          <ellipse class="d-plate-c" data-ambient cx="100" cy="104" rx="68" ry="17" fill="#3a3a3a" opacity="0.65"/>
+          <ellipse class="d-plate-b" data-ambient cx="100" cy="78"  rx="64" ry="16" fill="#444" opacity="0.8"/>
+          <ellipse class="d-plate-a" data-ambient cx="100" cy="50"  rx="60" ry="15" fill="#555"/>
+        </svg>
+      </div>
+      <div class="card__copy">
+        <div class="card__title">Adaptive Intelligence</div>
+        <p class="card__desc">Guarded templates, backup-first writes, and rollback posture. Every change is staged, verified, and reversible.</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Unified Data Layer — 3 sources converging (inverted: copy above art) -->
+    <div class="card card--inverted" data-card="unified">
+      <div class="card__diagram">
+        <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Foundation bar -->
+          <rect x="40" y="130" width="120" height="6" rx="3" fill="#fff" opacity="0.9"/>
+          <!-- 3 converging source ellipses -->
+          <ellipse class="d-src-t" data-ambient cx="100" cy="44" rx="32" ry="14" fill="#333"/>
+          <ellipse class="d-src-l" data-ambient cx="48"  cy="80" rx="28" ry="12" fill="#3a3a3a"/>
+          <ellipse class="d-src-r" data-ambient cx="152" cy="80" rx="28" ry="12" fill="#3a3a3a"/>
+          <!-- Converging lines -->
+          <line x1="100" y1="58" x2="100" y2="130" stroke="#444" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="48"  y1="92" x2="80" y2="130" stroke="#444" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="152" y1="92" x2="120" y2="130" stroke="#444" stroke-width="1.5" stroke-dasharray="4 3"/>
+        </svg>
+      </div>
+      <div class="card__copy">
+        <div class="card__title">Unified Data Layer</div>
+        <p class="card__desc">CodeGraph routing and skill-cluster resolver. Structural code search that knows your repo's shape, not just its text.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Production Infrastructure — crosshair + 4 nodes -->
+    <div class="card" data-card="production">
+      <div class="card__diagram">
+        <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Crosshair -->
+          <line x1="100" y1="30" x2="100" y2="130" stroke="#fff" stroke-width="1" opacity="0.3"/>
+          <line x1="40"  y1="80" x2="160" y2="80" stroke="#fff" stroke-width="1" opacity="0.3"/>
+          <!-- Center hub -->
+          <circle cx="100" cy="80" r="8" fill="#fff" opacity="0.9"/>
+          <!-- 4 nodes -->
+          <circle class="d-node-t" data-ambient cx="100" cy="34" r="6" fill="#555"/>
+          <circle class="d-node-b" data-ambient cx="100" cy="126" r="6" fill="#555"/>
+          <circle class="d-node-l" data-ambient cx="48"  cy="80" r="6" fill="#555"/>
+          <circle class="d-node-r" data-ambient cx="152" cy="80" r="6" fill="#555"/>
+          <!-- Connecting lines to hub -->
+          <line x1="100" y1="40" x2="100" y2="72" stroke="#444" stroke-width="1"/>
+          <line x1="100" y1="88" x2="100" y2="120" stroke="#444" stroke-width="1"/>
+          <line x1="56"  y1="80" x2="92"  y2="80" stroke="#444" stroke-width="1"/>
+          <line x1="108" y1="80" x2="144" y2="80" stroke="#444" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="card__copy">
+        <div class="card__title">Production Infrastructure</div>
+        <p class="card__desc">Local phase feedback and verify-before-commit gates. One command drives discovery through dispatch to verification.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Script ───────────────────────────────────────── -->
+<script>
+(function() {
+  'use strict';
+
+  const mq = matchMedia('(prefers-reduced-motion: reduce)');
+  const reduced = mq.matches;
+
+  // ── Reel: staggered entrance ──────────────────────
+  function Reel(els, stagger, dur) {
+    return Promise.all([...els].map((el, i) =>
+      el.animate(
+        [{ opacity: 0, transform: 'translateY(40px)' },
+         { opacity: 1, transform: 'translateY(0)' }],
+        { duration: dur, delay: i * stagger,
+          easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' }
+      ).finished
+    ));
+  }
+
+  // ── Hero entrance ─────────────────────────────────
+  function heroEntrance() {
+    if (reduced) {
+      document.querySelectorAll('.hero__headline .line').forEach(l => l.style.transform = 'none');
+      document.querySelector('.hero__sub').style.opacity = '1';
+      document.querySelector('.hero__cta').style.opacity = '1';
+      document.querySelector('.hero__cta').style.transform = 'none';
+      return;
+    }
+
+    const nav = document.querySelector('.nav');
+    const login = document.querySelector('.nav__login');
+    const lines = document.querySelectorAll('.hero__headline .line');
+    const sub = document.querySelector('.hero__sub');
+    const cta = document.querySelector('.hero__cta');
+
+    // 1. Nav + login lift
+    [nav, login].forEach((el, i) => {
+      el.animate(
+        [{ opacity: 0, transform: 'translateY(20px)' },
+         { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 600, delay: i * 80,
+          easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' }
+      );
+    });
+
+    // 2. Headline lines wipe
+    lines.forEach((line, i) => {
+      line.animate(
+        [{ transform: 'translateY(118%)' },
+         { transform: 'translateY(0%)' }],
+        { duration: 800, delay: 200 + i * 100,
+          easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' }
+      );
+    });
+
+    // 3. Subcopy fade
+    sub.animate(
+      [{ opacity: 0 }, { opacity: 1 }],
+      { duration: 400, delay: 600, fill: 'forwards' }
+    );
+
+    // 4. CTA fade + lift
+    cta.animate(
+      [{ opacity: 0, transform: 'translateY(10px)' },
+       { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 400, delay: 800,
+        easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' }
+    );
+  }
+
+  // ── actTwo: section 2 one-shot entrance ───────────
+  function actTwo() {
+    // Remove the JS-controlled hide state once the entrance resolves.
+    // Cards remain hidden via body.js-loading until reveal() fires.
+    const reveal = () => document.body.classList.remove('js-loading');
+
+    if (reduced) {
+      document.querySelectorAll('.features__headline .line').forEach(l => l.style.transform = 'none');
+      document.querySelectorAll('.card').forEach(c => {
+        c.style.opacity = '1';
+        c.style.transform = 'none';
+      });
+      reveal();
+      return;
+    }
+
+    const section = document.querySelector('.features');
+    const headline = document.querySelector('.features__headline');
+    const cards = document.querySelectorAll('.card');
+    let fired = false;
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !fired) {
+        fired = true;
+        obs.disconnect();
+        // Reset lines to masked position
+        headline.querySelectorAll('.line').forEach(l => l.style.transform = 'translateY(118%)');
+        Reel(headline.querySelectorAll('.line'), 180, 900)
+          .then(() => Reel(cards, 120, 700))
+          .then(reveal);
       }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    }, { threshold: 0.22 });
+
+    obs.observe(section);
+  }
+
+  // ── armAmbient: hover play/reverse on SVG elements ─
+  function armAmbient(card) {
+    const svg = card.querySelector('svg');
+    if (!svg) return;
+    const els = svg.querySelectorAll('[data-ambient]');
+    const anims = [...els].map(el => {
+      const cs = getComputedStyle(el);
+      const ax = cs.getPropertyValue('--ax') || '0';
+      const ay = cs.getPropertyValue('--ay') || '0';
+      const t = parseFloat(cs.getPropertyValue('--t')) * 1000 || 3000;
+      return el.animate(
+        [{ transform: 'translate(0, 0)' },
+         { transform: `translate(${ax}, ${ay})` }],
+        { duration: t, easing: 'ease-in-out', fill: 'forwards',
+          iterations: Infinity, direction: 'alternate' }
+      );
+    });
+    anims.forEach(a => a.pause());
+    card.addEventListener('mouseenter', () => anims.forEach(a => a.play()));
+    card.addEventListener('mouseleave', () => anims.forEach(a => a.reverse()));
+  }
+
+  // ── Init ──────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    // Pause video at frame 0 if reduced motion
+    const video = document.querySelector('.hero__video');
+    if (reduced && video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+
+    heroEntrance();
+    actTwo();
+
+    if (!reduced) {
+      document.querySelectorAll('.card').forEach(armAmbient);
+    }
+  });
+})();
+</script>
+
+</body>
 </html>
