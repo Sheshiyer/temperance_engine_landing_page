@@ -1,37 +1,38 @@
 ---
 project: Temperance Engine landing page
-phase: complete
-progress: 12/12
+phase: execute
+progress: 15/28
 mode: algorithm
-updated: 2026-08-22T06:20:00Z
+updated: 2026-11-02
 ---
 
 ## Problem
 
-The landing page needed a complete redesign from a React/GSAP/Tailwind SPA to a single static HTML page with WAAPI animations, local fonts, and zero framework dependencies.
+The current public two-section site and launch draft lead with generic inference infrastructure and installer positioning. The owner selected restoration of the prior cinematic site and a shared AI operator-system story. The old verification script still expects deleted files and reports 38 baseline failures.
 
 ## Vision
 
-Dark minimal, two full-viewport sections. Premium operator console feel — cinematic hero with right-anchored video, wipe-mask headline entrance, and hover-ambient diagram cards. No frameworks, no external CDN requests.
+Recover the editorial cinematic identity from the active React page at736fd13 and explain how context, skills, workflows, routing and verification work together. The outcome is a coherent review preview with truthful product claims.
 
 ## Out of Scope
 
-Deployment, analytics, CMS integration, and modifying the existing Thoughtseed Labs website app.
+Production promotion, domain changes, runtime installation, provider or credential changes, automatic workflow execution, new product listings, Product Hunt scheduling, and LumenBar changes.
+
+## Principles
+
+Ground product claims in released source. Show operator authority and optional dependencies clearly. Preserve design provenance and existing dirty work.
 
 ## Constraints
 
-- Single static `index.html` with inlined CSS/JS — no build framework
-- Local woff2 fonts only (Inter variable + Urbanist variable)
-- WAAPI only for all animations — no GSAP, no ScrollTrigger
-- `prefers-reduced-motion`: pause video on frame 0, skip all animations
-- Zero external CDN/font requests at runtime
-- Vite retained only for `vite preview` dev server
+Use an isolated codex branch based on5c58383. Recover active JSX rather than the unused geological TSX. Keep current GitHub links, existing artwork, local poster fallbacks, readable no-motion states, and one canonical product domain. Public production stays unchanged until owner review.
 
 ## Goal
 
-Replace the React/GSAP/Tailwind SPA with a single static HTML landing page using WAAPI animations, local fonts, and two full-viewport sections (hero + features).
+Deliver a restored React/GSAP website preview with approved operator-system messaging, current metadata, verified local checks and browser observations. The existing Product Hunt draft can receive matching copy only after the preview passes verification, while remaining unscheduled.
 
 ## Criteria
+
+Historical criteria ISC-1 through ISC-12 below retain the August22 observations of the static redesign. They are superseded by this owner-approved restoration and are not current acceptance requirements.
 
 - [x] ISC-1: `index.html` exists at project root with complete HTML structure (nav, hero, features sections).
 - [x] ISC-2: Inter variable woff2 and Urbanist variable woff2 exist in `public/assets/fonts/`.
@@ -46,52 +47,69 @@ Replace the React/GSAP/Tailwind SPA with a single static HTML landing page using
 - [x] ISC-11: CSS amplitude classes (`.d-plate-*`, `.d-src-*`, `.d-node-*`) define `--ax`, `--ay`, `--t` custom properties.
 - [x] ISC-12: `prefers-reduced-motion` CSS media query disables all animations; JS matchMedia guard pauses video and skips WAAPI calls.
 
-## Features
+Current restoration criteria:
 
-- Static HTML scaffold | satisfies ISC-1, ISC-2, ISC-3, ISC-4 | depends_on none
-- Hero section | satisfies ISC-5, ISC-6, ISC-7 | depends_on scaffold
-- Hero animation | satisfies ISC-8 | depends_on hero section
-- Section 2 entrance | satisfies ISC-9, ISC-10, ISC-11 | depends_on features section
-- Reduced motion | satisfies ISC-12 | depends_on all animations
-- Build verification | satisfies all | depends_on all
+- [x] ISC-13: Active React/GSAP sources are recovered without unused geological TSX.
+- [x] ISC-14: The single H1 is the approved shared-way-to-work headline.
+- [x] ISC-15: The approved introduction is present in rendered product content.
+- [x] ISC-16: The page has five labelled product sections.
+- [x] ISC-17: Every internal navigation anchor resolves to a unique target.
+- [x] ISC-18: The actual Temperance mark replaces the historical L.
+- [x] ISC-19: Local artwork and the hero poster exist in the built output.
+- [x] ISC-20: Built social metadata and schema use the canonical product domain.
+- [x] ISC-21: Robots and sitemap agree with the canonical domain.
+- [x] ISC-22: Held qualification milestones remain explicit in product content.
+- [x] ISC-23: Optional integrations and PAI/GSD/OmniRoute ownership are explicit.
+- [x] ISC-24: Claim map cites a pinned public product revision.
+- [x] ISC-25: Node structural and metadata tests pass.
+- [x] ISC-26: Production build passes.
+- [x] ISC-27: Anti: no inactive Login or Pricing controls are rendered.
+- [ ] ISC-28: Antecedent: browser preview has readable desktop composition.
+- [ ] ISC-29: Browser preview has no horizontal overflow at mobile widths.
+- [ ] ISC-30: Browser keyboard navigation has visible focus and working section links.
+- [ ] ISC-31: Browser reduced-motion mode has readable content and no automatic video motion.
+- [ ] ISC-32: Browser console has no application errors.
+- [ ] ISC-33: Vercel preview is READY at the reviewed source revision.
+- [ ] ISC-34: Anti: current public production deployment remains unchanged.
+- [ ] ISC-35: Existing Product Hunt draft retains unscheduled state after matching copy update.
+- [ ] ISC-36: Product Hunt reopened fields match approved copy and preserved links/role.
+- [ ] ISC-37: Clean application README introduction and badge alt changes are prepared only for review.
+- [ ] ISC-38: Cambium references mark earlier positioning superseded without erasing historical proof.
+- [ ] ISC-39: Bounded handoff contains preview, exact revisions, holds and rollback instructions.
+- [ ] ISC-40: Anti: LumenBar is untouched and runtime holds remain held.
 
 ## Test Strategy
 
-- ISC-1 | file probe | verify `index.html` exists at root | present | Bash
-- ISC-2 | file probe | verify woff2 files in `public/assets/fonts/` | present | Bash
-- ISC-3..4 | CSS probe | grep for custom properties and @font-face | present | Grep
-- ISC-5..6 | HTML probe | grep for video element attributes and URL | present | Grep
-- ISC-7 | CSS probe | grep for wipe-mask technique | present | Grep
-- ISC-8 | JS probe | grep for hero entrance WAAPI sequence | present | Grep
-- ISC-9..10 | JS probe | grep for actTwo/armAmbient functions | present | Grep
-- ISC-11 | CSS probe | grep for amplitude classes | present | Grep
-- ISC-12 | CSS+JS probe | grep for prefers-reduced-motion and matchMedia | present | Grep
-- Build | build probe | `npm run build` | exit 0 | Bash
-- Browser | browser probe | Playwright desktop+mobile screenshots | zero console errors | Bash
+ISC-13..27: Node structural and metadata tests, build and source review. ISC-28..32: actual IAB desktop/mobile/keyboard/reduced-motion/console probes. ISC-33..34: Vercel deployment records before and after. ISC-35..36: existing draft reopen/readback. ISC-37..40: scoped diff and handoff review. Source/test results are not browser or production acceptance.
+
+## Features
+
+- Cinematic restoration: active React/GSAP source, existing artwork, editorial typography and responsive composition.
+- Operator-system story: approved copy, capability sections, work loop, integrations and getting started.
+- Evidence and discovery: claim map, canonical metadata, meaningful structural checks.
+- Review delivery: verified Vercel preview, matching unscheduled draft and bounded repository handoff.
 
 ## Decisions
 
-- Replaced React/GSAP/Tailwind SPA with single static `index.html` — zero runtime dependencies.
-- WAAPI replaces GSAP for all animations (hero entrance, section 2 entrance, hover ambient).
-- Variable fonts (Inter + Urbanist) as single woff2 files instead of per-weight files.
-- Vite retained only as dev server (`vite preview`), not for building React.
-- Removed `postcss.config.js` and `tailwind.config.js` — no longer needed.
-- Stripped React, ReactDOM, GSAP, @gsap/react, Tailwind, autoprefixer from dependencies.
-- `src/` directory removed — all code inlined in `index.html`.
+- 2026-11-02: refined: Owner selected restore-and-update rather than exact rollback; AI operator system is the category and installation is setup detail.
+- 2026-11-02: Owner selected preview for review; production remains unchanged.
+- 2026-11-02: Restore active JSX visual identity from736fd13, retain GitHub correction from5c58383, avoid retired TSX and external commercial-font imports.
+- 2026-11-02: Release0.8.0 and compatibility record take precedence over stale README router wording. OmniRoute is the default; legacy9router is not the primary story.
+
+## Changelog
+
+- 2026-11-02 | conjectured: The two-section installer/inference positioning was suitable for the product launch.
+  refuted by: Owner correction and review of the recoverable cinematic site plus broader operator-system source.
+  learned: Restore the design separately from rewriting the promise; claims still need released evidence and visible setup boundaries.
+  criterion now: ISC-13..40 articulate the restoration and review-only outcome.
 
 ## Verification
 
-- ISC-1: File probe — `index.html` exists at project root with nav, hero, features sections.
-- ISC-2: File probe — `public/assets/fonts/Inter-Variable.woff2` (48KB) and `public/assets/fonts/Urbanist-Variable.woff2` (28KB) exist.
-- ISC-3: CSS probe — custom properties `--black:#000`, `--bg:#0A0A0A`, `--card:#111`, `--white:#fff`, `--gray:#9CA3AF`, `--border:#1F1F1F`, `--nav-h:56px` present.
-- ISC-4: CSS probe — `@font-face` with `font-display: block` for both Inter and Urbanist.
-- ISC-5: HTML probe — video element with `preload="auto"`, `autoplay`, `muted`, `loop`, `playsinline`, `object-fit: cover`, `object-position: right center`.
-- ISC-6: HTML probe — CloudFront URL `hf_20260808_114341_c6166862-328b-45ae-b0c0-49fa977875a1.mp4` present.
-- ISC-7: CSS probe — `.line-mask` with `overflow: hidden` and `.line` with `transform: translateY(118%)` present.
-- ISC-8: JS probe — `heroEntrance()` function with nav lift, headline wipe, subcopy fade, CTA fade sequence.
-- ISC-9: JS probe — `actTwo()` function with IntersectionObserver at `threshold: 0.22`, calling `Reel()` for headline then cards.
-- ISC-10: JS probe — `armAmbient()` function with mouseenter/mouseleave listeners playing/reversing WAAPI animations.
-- ISC-11: CSS probe — `.d-plate-a` through `.d-node-r` amplitude classes with `--ax`, `--ay`, `--t` properties.
-- ISC-12: CSS+JS probe — `@media (prefers-reduced-motion: reduce)` and `matchMedia('(prefers-reduced-motion: reduce)')` guards.
-- Build: `npm run build` exits 0, `dist/index.html` contains all assets, zero external CDN requests.
-- Browser: Playwright screenshots at 1440×900 and 375×812, zero console errors.
+Browser and external observations must be filled by the root verifier; no browser or deployment acceptance is claimed by source implementation alone.
+
+- ISC-13..19, ISC-27: Source and server-rendered content review — active JSX, real mark, five labelled sections, resolved anchors and build assets; inactive Login/Pricing absent.
+- ISC-20..21: Built-head/robots/sitemap tests — canonical and social URLs agree on the product host; OG artwork is1200×630.
+- ISC-22..24: Content and provenance review — held gates and optional integration ownership are visible; claim map pins product source42b391b.
+- ISC-25: `npm test` —6 tests pass,0 failures; includes production build and actual server-rendered App content rather than source-string scaffolding checks.
+- ISC-26: Vite5.4.21 production build —37 modules transformed; built HTML3.11kB, CSS19.47kB, JS272.08kB before gzip.
+- Dependency review: nonbreaking transitive updates reduced npm audit from5 advisories to2 (one moderate, one high) in the required Vite5/esbuild development toolchain. No production dependency advisory was reported. A major Vite migration is outside this visual recovery and remains a separate review item. Development commands bind loopback.
