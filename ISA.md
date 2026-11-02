@@ -1,7 +1,7 @@
 ---
 project: Temperance Engine landing page
-phase: execute
-progress: 15/28
+phase: complete
+progress: 28/28
 mode: algorithm
 updated: 2026-11-02
 ---
@@ -64,19 +64,19 @@ Current restoration criteria:
 - [x] ISC-25: Node structural and metadata tests pass.
 - [x] ISC-26: Production build passes.
 - [x] ISC-27: Anti: no inactive Login or Pricing controls are rendered.
-- [ ] ISC-28: Antecedent: browser preview has readable desktop composition.
-- [ ] ISC-29: Browser preview has no horizontal overflow at mobile widths.
-- [ ] ISC-30: Browser keyboard navigation has visible focus and working section links.
-- [ ] ISC-31: Browser reduced-motion mode has readable content and no automatic video motion.
-- [ ] ISC-32: Browser console has no application errors.
-- [ ] ISC-33: Vercel preview is READY at the reviewed source revision.
-- [ ] ISC-34: Anti: current public production deployment remains unchanged.
-- [ ] ISC-35: Existing Product Hunt draft retains unscheduled state after matching copy update.
-- [ ] ISC-36: Product Hunt reopened fields match approved copy and preserved links/role.
-- [ ] ISC-37: Clean application README introduction and badge alt changes are prepared only for review.
-- [ ] ISC-38: Cambium references mark earlier positioning superseded without erasing historical proof.
-- [ ] ISC-39: Bounded handoff contains preview, exact revisions, holds and rollback instructions.
-- [ ] ISC-40: Anti: LumenBar is untouched and runtime holds remain held.
+- [x] ISC-28: Antecedent: browser preview has readable desktop composition.
+- [x] ISC-29: Browser preview has no horizontal overflow at mobile widths.
+- [x] ISC-30: Browser keyboard navigation has visible focus and working section links.
+- [x] ISC-31: Browser reduced-motion mode has readable content and no automatic video motion.
+- [x] ISC-32: Browser console has no application errors.
+- [x] ISC-33: Vercel preview is READY at the reviewed source revision.
+- [x] ISC-34: Anti: current public production deployment remains unchanged.
+- [x] ISC-35: Existing Product Hunt draft retains unscheduled state after matching copy update.
+- [x] ISC-36: Product Hunt reopened fields match approved copy and preserved links/role.
+- [x] ISC-37: Clean application README introduction and badge alt changes are prepared only for review.
+- [x] ISC-38: Cambium references mark earlier positioning superseded without erasing historical proof.
+- [x] ISC-39: Bounded handoff contains preview, exact revisions, holds and rollback instructions.
+- [x] ISC-40: Anti: LumenBar is untouched and runtime holds remain held.
 
 ## Test Strategy
 
@@ -115,3 +115,17 @@ Browser and external observations must be filled by the root verifier; no browse
 - Dependency review: nonbreaking transitive updates reduced npm audit from5 advisories to2 (one moderate, one high) in the required Vite5/esbuild development toolchain. No production dependency advisory was reported. A major Vite migration is outside this visual recovery and remains a separate review item. Development commands bind loopback.
 
 - ISC-31: Source refinement after root IAB probe — reduced motion keeps the poster and omits the disabled media control. New SSR regression passes for reduced mode and preserves the normal-motion pause/play control; actual browser recheck remains root-owned. `npm test`:7/7pass with production build.
+
+- ISC-28: Authenticated remote IAB at1440×900 — approved headline, cinematic hero, real logo, editorial composition and all five sections observed.
+- ISC-29: Remote IAB at375×812 and320×812 — scrollWidth equals clientWidth; no text block exceeds viewport width.
+- ISC-30: Remote workflow/get-started anchors reached their sections near24px from top; keyboard focus on brand link has solid3px outline.
+- ISC-31: Remote reduced-motion reload — video paused, poster readable, no playback button; normal mode pause control also tested locally.
+- ISC-32: Fresh authenticated remote preview tab — warn/error log list empty; earlier login-tab messages are separate.
+- ISC-33: Vercel preview dpl_A57LdT4sTenjcaU2JcavVLhRytMP READY; all49 uploaded file digests matched reviewed c930af9 source/build.
+- ISC-34: Vercel production dpl_And7oPASgXBUTCp4asMvMdqPWc3M readback retains product-domain aliases and source5c58383.
+- ISC-35: Existing Product Hunt listing and editor reload report Draft / Not scheduled yet after Save changes.
+- ISC-36: Reopened fields match approved tagline and303-character description; name, website, GitHub source and maker role preserved.
+- ISC-37: Clean current-main application branch stages only README; its main remains42b391b and no new push occurred.
+- ISC-38: Cambium proof packet/index and pack reference mark prior copy superseded; historical creation and rejected graph observations remain.
+- ISC-39: .project/HANDOFF.md records exact preview/source, cross-repository review state, checks, holds and rollback.
+- ISC-40: No LumenBar UI or runtime authority changed; all named qualification holds are retained.
