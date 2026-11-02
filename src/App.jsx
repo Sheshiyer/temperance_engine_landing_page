@@ -92,7 +92,7 @@ export default function App() {
         <div className="film-heading"><p className="eyebrow">Watch the architecture</p><h3 id="architecture-film-title">A 30-second tour of the operating layer.</h3><p id="architecture-film-description">An illustrative architecture animation. Start playback when you choose, or read the same story in the transcript.</p></div>
         <video className="architecture-film-player" controls playsInline preload="none" width="1920" height="1080" poster="/assets/temperance-architecture-30s-poster.jpg" aria-labelledby="architecture-film-title" aria-describedby="architecture-film-description">
           <source src="/assets/temperance-architecture-30s.mp4" type="video/mp4" />
-          <track kind="captions" src="/assets/temperance-architecture-30s-captions.vtt" srcLang="en" label="English captions" default />
+          <track kind="captions" src="/assets/temperance-architecture-30s-captions.vtt" srcLang="en" label="English descriptive captions" />
           Your browser does not support this video. Use the transcript below.
         </video>
         <figcaption><a href="/assets/temperance-architecture-30s-transcript.md">Read the film transcript</a><a href="/assets/temperance-architecture-30s-captions.vtt">Download captions (VTT)</a><a href={`${alignmentRoot}/docs/architecture-explainer.md`}>Read the architecture explainer ↗</a></figcaption>
