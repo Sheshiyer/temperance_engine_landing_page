@@ -1,7 +1,7 @@
 ---
 project: Temperance Engine landing page
-phase: complete
-progress: 66/66
+phase: verify
+progress: 92/98
 mode: algorithm
 updated: 2026-11-02
 ---
@@ -110,9 +110,48 @@ Launch-package alignment extension (founder requests later on November 2):
 - [x] ISC-65: Final protected preview is READY at the media/content revision with unchanged production and protection.
 - [x] ISC-66: Final launch-editor readback preserves November6schedule, identity, website, source, maker, art and tags.
 
+
+Current product-polish criteria (2026-11-02):
+
+- [x] ISC-67: Antecedent: Hero explains the product in one clear headline.
+- [x] ISC-68: Hero primary action leads to the getting-started section.
+- [x] ISC-69: Hero secondary action leads to the product film.
+- [x] ISC-70: Navigation uses a concise set of product destinations.
+- [x] ISC-71: Internal review or receipt commentary is absent from the product narrative.
+- [x] ISC-72: Repeated source-contract links are absent from the page.
+- [x] ISC-73: The detailed capability evidence matrix is removed from the landing page.
+- [x] ISC-74: Installed private-profile inventory counts are absent from the landing page.
+- [x] ISC-75: Product benefits are expressed through concrete developer outcomes.
+- [x] ISC-76: Seven work phases remain accurately named.
+- [x] ISC-77: Five Koshas remain described as work layers.
+- [x] ISC-78: Six advisory organ names retain accurate scope.
+- [x] ISC-79: Integration copy distinguishes optional connected tools.
+- [x] ISC-80: Getting-started instructions remain actionable.
+- [x] ISC-81: A useful documentation destination is retained.
+- [x] ISC-82: A repository destination is retained.
+- [x] ISC-83: The Product Hunt widget links to the existing product listing.
+- [x] ISC-84: Anti: Product Hunt votes or rankings are not fabricated.
+- [x] ISC-85: The Product Hunt badge has an accessible name.
+- [x] ISC-86: All internal anchor destinations resolve uniquely.
+- [x] ISC-87: Hero brand artwork remains intact.
+- [x] ISC-88: The existing thirty-second film bytes remain intact.
+- [x] ISC-89: Film remains manually controlled.
+- [x] ISC-90: Film transcript remains available.
+- [ ] ISC-91: Reduced-motion presentation remains readable.
+- [ ] ISC-92: Mobile presentation has no horizontal overflow at 320 CSS pixels.
+- [ ] ISC-93: Keyboard controls show visible focus.
+- [x] ISC-94: SEO canonical and social metadata remain coherent.
+- [ ] ISC-95: Production application remains unchanged.
+- [x] ISC-96: Source build and meaningful page checks pass.
+- [ ] ISC-97: Quest graph records the completed media and documentation work.
+- [ ] ISC-98: Quest graph records website polish with its actual verification state.
+
 ## Test Strategy
 
 ISC-13..27: Node structural and metadata tests, build and source review. ISC-28..32: actual IAB desktop/mobile/keyboard/reduced-motion/console probes. ISC-33..34: Vercel deployment records before and after. ISC-35..36: existing draft reopen/readback. ISC-37..40: scoped diff and handoff review. Source/test results are not browser or production acceptance.
+
+
+Current polish verification: ISC-67..85 use rendered-product structural checks and browser inspection; ISC-86 uses unique-anchor checks; ISC-87..90 use asset hashes and native video inspection; ISC-91..93 use reduced-motion/mobile/keyboard browser probes; ISC-94 uses built-head metadata checks; ISC-95 uses production readback; ISC-96 uses npm test; ISC-97..98 require authenticated graph readback or remain openly unmet.
 
 ## Features
 
@@ -125,6 +164,9 @@ ISC-13..27: Node structural and metadata tests, build and source review. ISC-28.
 - Evidence and editorial review | satisfies ISC-47..51 | depends_on product source matrix | parallelizable true.
 - Actual browser and launch verification | satisfies ISC-52..58 | depends_on source checks | root-owned.
 
+- Product polish | Replace architecture-review exposition with a focused product narrative and curated links | satisfies ISC-67..96 | depends_on prior accepted film | parallelizable true
+- Quest progress | Update existing graph work with exact evidence and held production state | satisfies ISC-97..98 | depends_on authenticated graph identity | parallelizable true
+
 ## Decisions
 
 - 2026-11-02: refined: Owner selected restore-and-update rather than exact rollback; AI operator system is the category and installation is setup detail.
@@ -136,6 +178,10 @@ ISC-13..27: Node structural and metadata tests, build and source review. ISC-28.
 - 2026-11-02 refined: Portable product = glove and selected profile = hand in the existing V4 contract. Plain-language UI uses core / personal profile / company integration.
 - 2026-11-02 refined: Product Hunt schedule is November6,2026,12:01AM PST; preserve it. Historical unscheduled checks below are dated evidence, not current instructions.
 - 2026-11-02: Browser, deployment and Product Hunt live checks remain root-owned. This implementation does not claim those probes.
+
+- 2026-11-02: refined: Founder requests a polished product website. Prior 15-section and expanded-word-count criteria remain historical; the current experience may condense them. Internal evidence remains in docs and ISA. SEO metadata remains useful product metadata. No production promotion or launch rescheduling is authorized.
+- 2026-11-02: FirstPrinciples Challenge: visitor needs value, demonstration and a next step; source ownership proof is a documentation concern. IterativeDepth: visitor lens adds concise benefits; maintenance lens adds curated stable links; temporal lens forbids premature Product Hunt votes; accessibility lens preserves manual film, keyboard and reduced motion.
+- 2026-11-02: Capabilities used: ISA, FirstPrinciples, IterativeDepth, ReReadCheck. Implementation and graph bookkeeping run independently under the Temperance parallel-dispatch workflow. The original request was reread to retain both curated links and quest-graph updates.
 
 ## Changelog
 
@@ -150,6 +196,8 @@ ISC-13..27: Node structural and metadata tests, build and source review. ISC-28.
   learned: Explain responsibilities and evidence levels together, while keeping interactions educational and source boundaries visible.
   criterion now: ISC-41..58 define the expanded source, browser and launch proof separately.
 
+
+- 2026-11-02: Routed bounded Opus production request was refused by the normal host-pressure guard after a120second slotwait (exit125/admittedfalse). No modelgeneration is claimed for this iteration. The isolated implementation worker continues the authorized page edit; hostguard/providerconfiguration remains unchanged.
 
 ## Verification
 
@@ -204,3 +252,7 @@ Browser and external observations must be filled by the root verifier; no browse
 - 2026-11-02 Phloem Opus film iteration: A completed response reporting claude-opus-5-5 supplied the three new scene callbacks. Independent source and representative-frame review passed. Master and web movies were replaced with the verified Opus refinement; decoded counts are 1,800 at1080p60 and900 at1080p30, both30.000seconds. All five enabled plugins are shown. The original renderer/artwork/score and local render steps retain separate attribution. Exact source links now pin product 75f3de1a765255d9c734c2dcffb087ad9bda9157. Prior local-review evidence remains historical; final new-preview browser/readback checks are pending for this iteration.
 
 - 2026-11-02 final Opus iteration verification: protected deployment dpl_s72M3xXojqNp7vXbtWqWqqamYkGU is READY at content revision 372fa0a55135571e61492418222c55f388001222. IAB loads index-B0L-flSI.js; the new movie completes at 30 seconds, playbackRate 1, error null, with no console errors/warnings. The 320 CSS-pixel layout has scrollWidth 320 and a 278px manual player; reduced motion removes all ambient hero sources and keeps the film paused. The plugin disclosure opens and exact links pin product 75f3de1. A fresh CLI readback confirms 15 installed records and all five enabled names/versions unchanged. The existing ProductHunteditor reads No changes with the exact 387-character description, November 6th, 2026, 12:01 AM PST schedule, same maker/tags/art and canonical website/GitHub links. No fields, schedule or publication controls were changed during this final readback. Production remains dpl_And7oPASgXBUTCp4asMvMdqPWc3M at 5c5838331b5b8d9207d0c26aeb67dce17e6fe411; protection remains all_except_custom_domains. Website review scope remains 66/66, with actual Phloem source and media now integrated. Earlier local-review/S-delivery holds are historical and superseded by the completed response and verification.
+
+- ISC-67..90: Source and browser probes — nine labelled sections, purposefully named links, no rendered capability table or profile inventory,18selectorstates each checked with exactlyonevisiblepanel; filmmanualpaused beforeSpace, playbackduration30/errornull. SourceSHA2565e52dd8fe63b516060267836e3446888f1f7d3546a47957c19723824de989a28 unchanged.
+- ISC-94: Built head — canonical/social/schema/robots/sitemap checks pass.
+- ISC-96: npm test —9tests/9passes/0failures;1697wordsincludingallpanels; distCSS15.54kB,JS281.30kB.

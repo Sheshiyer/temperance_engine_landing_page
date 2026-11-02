@@ -1,3 +1,17 @@
+# Current product-polish handoff — 2026-11-02
+
+The current isolated branch is `codex/product-polish-20261102`, recovered from website commit `2c5dca2`. The former temporary worktrees disappeared; the original dirty primary checkout was preserved. This pass supersedes the fifteen-section architecture-heavy presentation with a nine-section product page, approximately1,700words and three accessible interactive explorers.
+
+The approved cinematic hero and manual30-second film remain. Internal source links, release tables, private installed-tooling inventories and repetitive verification commentary were removed from the UI. Purposeful setup/compatibility/GitHub/transcript links remain, with a custom linked Product Hunt launch badge. The existing launch remains scheduled for **November6,2026,12:01AM PST**; the unscheduled observation in the dated history below is superseded.
+
+Local source checks run with `npm test` (production build plus nine meaningful rendered-page checks). Actual browser review and any deployment are owned by the parent workflow. Do not interpret historical preview or production IDs below as a current deployment readback. Root will record current review/deployment evidence in ISA. The worker made no commit, push, deployment, provider change or launch-schedule change.
+
+Source generation attempted the normal Phloem Opus build helper. The host-pressure queue timed out before auth/inference; bounded source work continued in the isolated worker. The pressure gate was not bypassed. Exact attempt details live in the task workspace’s `work/polish-generation/worker-attribution.json`, not in product UI.
+
+---
+
+## Historical restoration handoff (dated observations)
+
 # Temperance operator-system preview — 2026-11-02
 
 ## Current result

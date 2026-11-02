@@ -35,15 +35,7 @@ test('built head uses one canonical domain and coherent social metadata',()=>{
   assert.equal(schema.name,'Temperance Engine');
   assert.ok(!html.includes('thoughtseed.space/temperance-engine/'));
 });
-test('rendered page has one headline and all fifteen labelled architecture sections',()=>{
-  assert.equal(content.filter(n=>n.tagName==='h1').length,1);
-  assert.equal(text(content.find(n=>n.tagName==='h1')),'Give your AI tools a shared way to work.');
-  const sections=content.filter(n=>n.tagName==='section'); assert.equal(sections.length,15);
-  assert.deepEqual(sections.map(n=>attr(n,'id')),['top','operating-layer','architecture','koshas','workflow','organs','integrations','core-and-profile','routing','skills','memory','evidence','availability','get-started','faq']);
-  for(const section of sections) assert.ok(content.some(n=>attr(n,'id')===attr(section,'aria-labelledby')));
-  assert.match(text(content[0]),/AI operator system/);
-  assert.ok(!text(content[0]).includes('Local installer for an OpenCode operator runtime'));
-});
+
 test('every rendered local anchor resolves and links have useful names',()=>{
   const ids=content.map(n=>attr(n,'id')).filter(Boolean);
   assert.equal(new Set(ids).size,ids.length);
@@ -56,6 +48,7 @@ test('every rendered local anchor resolves and links have useful names',()=>{
   }
   assert.ok(!text(content[0]).includes('Log In')); assert.ok(!text(content[0]).includes('Pricing'));
 });
+
 test('rendered local images, font, and bundled assets are present in the build',async()=>{
   const paths=[...content.filter(n=>n.tagName==='img').map(n=>attr(n,'src')), ...nodes.filter(n=>n.tagName==='script'&&attr(n,'src')).map(n=>attr(n,'src')), ...nodes.filter(n=>n.tagName==='link'&&['stylesheet','preload','icon'].includes(attr(n,'rel'))).map(n=>attr(n,'href'))];
   for(const path of paths) { assert.ok(path.startsWith('/')); await access(resolve(root,`dist${path}`)); }
@@ -64,26 +57,13 @@ test('rendered local images, font, and bundled assets are present in the build',
   const video=content.find(n=>n.tagName==='video');
   assert.ok(video); assert.equal(attr(video,'poster'),'/assets/temperance-hero-poster.png');
 });
-test('release boundaries, optional integrations, and ownership remain explicit',()=>{
-  const copy=text(content[0]);
-  for(const phrase of ['v1.1 clean-host milestone','live hosted-router authentication','qualified long-context sessions','durable checkpoint recovery remain held','PAI','GSD','OmniRoute','opt-in']) assert.ok(copy.includes(phrase),phrase);
-  assert.ok(copy.indexOf('Get started')<copy.indexOf('./install.sh'));
-  assert.ok(copy.includes('Koshas'));
-  assert.ok(copy.includes('descriptive work layers'));
-  assert.ok(copy.includes('not processes or enforceable security partitions'));
-  assert.ok(copy.includes('Superset and Constellation are retired'));
-  assert.ok(copy.includes('This runner is not a sandbox'));
-  assert.ok(copy.includes('Historical product-graph acceptance remains held'));
-  assert.ok(copy.includes('canonical-memory updates'));
-  assert.ok(copy.includes('Shipped identifies released source.'));
-  assert.ok(copy.includes('separate installation, runtime and acceptance evidence.'));
-  assert.equal(content.filter(n=>n.tagName==='p'&&attr(n,'class')==='sr-only'&&text(n).startsWith('Primary phases:')).length,5);
-});
+
 test('robots and sitemap use the same canonical website',async()=>{
   assert.match(await readFile(resolve(root,'dist/robots.txt'),'utf8'),/Sitemap: https:\/\/temperance\.thoughtseed\.space\/sitemap.xml/);
   const sitemap=await readFile(resolve(root,'dist/sitemap.xml'),'utf8');
   assert.ok(sitemap.includes(`<loc>${canonical}</loc>`)); assert.ok(!sitemap.includes('thoughtseed.space/temperance-engine/'));
 });
+
 
 test('reduced-motion rendering keeps the poster without an inoperative media control',()=>{
   const previousWindow=globalThis.window;
@@ -102,55 +82,6 @@ test('reduced-motion rendering keeps the poster without an inoperative media con
   assert.equal(content.filter(n=>n.tagName==='button'&&attr(n,'class')==='motion-toggle').length,1);
 });
 
-
-test('educational selectors expose a single selected native radio and every target panel',()=>{
-  const groups=content.filter(n=>n.tagName==='fieldset');
-  assert.equal(groups.length,6);
-  const expected={cycle:7,graph:5,kosha:5,phase:7,organ:6,profile:3};
-  for(const [name,count] of Object.entries(expected)) {
-    const radios=content.filter(n=>n.tagName==='input'&&attr(n,'name')===name);
-    assert.equal(radios.length,count,name);
-    assert.equal(radios.filter(n=>n.attrs?.some(a=>a.name==='checked')).length,1,name);
-    for(const radio of radios) {
-      assert.equal(attr(radio,'type'),'radio');
-      const panel=content.find(n=>attr(n,'id')===attr(radio,'aria-controls'));
-      assert.ok(panel,`missing panel for ${name}`);
-      assert.ok(text(panel).trim().length>80,`empty explanation for ${name}`);
-      assert.equal(panel.attrs.some(a=>a.name==='hidden'),!radio.attrs.some(a=>a.name==='checked'));
-    }
-  }
-  assert.equal(content.filter(n=>n.tagName==='form').length,0);
-});
-test('architecture and organ content preserves owners, dependencies and evidence levels',()=>{
-  const copy=text(content[0]);
-  for(const phrase of ['Vestibule','Adytum','Nutrix','Auspex','Circulator','Praeceptor','Annamaya','Pranamaya','Manomaya','Vijnanamaya','Anandamaya','Genesis, Taste, Hands, Will, Cortex and Garden','Cambium owns WorkObjects, Gate, tenant admission and result lineage','portable product the “glove”','selected profile']) assert.ok(copy.includes(phrase),phrase);
-  const table=content.find(n=>n.tagName==='table');
-  const rows=descendants(table).filter(n=>n.tagName==='tr');
-  assert.equal(rows.length,10);
-  for(const state of ['Shipped','Draft','Held','Gap']) assert.ok(text(table).includes(state),state);
-  assert.ok(text(table).includes('Review branch'));
-  assert.ok(copy.includes('Actual-attempt evidence'));
-  assert.ok(copy.includes('No cadence job is activated here'));
-});
-test('editorial body including all selectable panels stays within the architecture brief',()=>{
-  const spacedText=n=>n.nodeName==='#text'?n.value:(n.childNodes||[]).map(spacedText).join(' ');
-  const words=spacedText(content[0]).trim().split(/\s+/).length;
-  assert.ok(words>=2500,`${words} words is below the expanded brief`);
-  assert.ok(words<=5000,`${words} words exceeds the hard ceiling`);
-  console.log(`Architecture editorial count: ${words} words including hidden panels and disclosures`);
-});
-test('source links pin released claims and no controls imply runtime execution',()=>{
-  const links=content.filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
-  const sourceLinks=links.filter(h=>h.includes('/blob/'));
-  assert.ok(sourceLinks.length>8);
-  assert.ok(sourceLinks.every(h=>/\/blob\/(42b391b44b7655972d9322d87aa3865956a5165e|cf0583e863adba1758aa12b1b53e808087c6e417|75f3de1a765255d9c734c2dcffb087ad9bda9157)\//.test(h)));
-  assert.ok(sourceLinks.some(h=>h.endsWith('/docs/plans/2026-11-02-portable-capabilities.md')));
-  assert.ok(links.includes('https://www.producthunt.com/products/temperance-engine?launch=temperance-engine'));
-  assert.equal(content.filter(n=>n.tagName==='button').length,1);
-  for(const input of content.filter(n=>n.tagName==='input')) assert.equal(attr(input,'type'),'radio');
-  assert.ok(!markup.includes('/Users/'));
-  assert.ok(!markup.includes('127.0.0.1'));
-});
 
 
 test('architecture film is controlled, non-autoplay and has equivalent caption/transcript routes',async()=>{
@@ -174,10 +105,52 @@ test('architecture film is controlled, non-autoplay and has equivalent caption/t
   const captionText=await readFile(resolve(root,'dist/assets/temperance-architecture-30s-captions.vtt'),'utf8');
   assert.ok(captionText.startsWith('WEBVTT'));
 });
-test('installed Claude tooling is a dated optional profile disclosure with exact alignment sources',()=>{
-  const details=content.find(n=>n.tagName==='details'&&attr(n,'class')?.includes('tooling-details'));
-  assert.ok(details); const copy=text(details);
-  for(const phrase of ['Installed Claude plugins and skills','Feature Dev 1.0.1','rust-analyzer 1.0.0','Supabase 0.1.16','Superpowers 7.0.0','Temperance rail mod 0.11.0','ten disabled installations','155 exposed top-level skill entries','not bundled portable defaults','different evidence levels']) assert.ok(copy.includes(phrase),phrase);
-  const urls=descendants(details).filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
-  for(const path of ['docs/architecture-explainer.md','CREDITS.md','docs/plans/2026-11-02-claude-tooling-metadata.json']) assert.ok(urls.includes(`https://github.com/Sheshiyer/temperance_engine/blob/75f3de1a765255d9c734c2dcffb087ad9bda9157/${path}`),path);
+
+
+test('product page has one clear promise and a focused, labelled journey',()=>{
+  assert.equal(content.filter(n=>n.tagName==='h1').length,1);
+  assert.equal(text(content.find(n=>n.tagName==='h1')),'Give your AI tools a shared way to work.');
+  const hero=content.find(n=>attr(n,'id')==='top');
+  const actions=descendants(hero).filter(n=>n.tagName==='a'&&attr(n,'class')?.includes('button'));
+  assert.equal(attr(actions[0],'href'),'#get-started');
+  assert.equal(attr(actions[1],'href'),'#film');
+  const sections=content.filter(n=>n.tagName==='section');
+  assert.ok(sections.length>=8 && sections.length<=10);
+  for(const section of sections) assert.ok(content.some(n=>attr(n,'id')===attr(section,'aria-labelledby')));
+  for(const id of ['operating-layer','workflow','koshas','organs','integrations','get-started','faq']) assert.ok(sections.some(n=>attr(n,'id')===id),id);
+  const spaced=n=>n.nodeName==='#text'?n.value:(n.childNodes||[]).map(spaced).join(' ');
+  const copy=spaced(content[0]); const words=copy.trim().split(/\s+/).length;
+  console.log(`Product editorial count: ${words} words including all interactive explanations`);
+  assert.ok(words>=1200 && words<=1800,`${words} words outside focused product brief`);
+  assert.doesNotMatch(copy,/source contract|acceptance receipt|synthetic fixtures|sanitized metadata|155 exposed|ten disabled|review branch|canonical.memory/i);
+  assert.ok(!content.some(n=>n.tagName==='table'),'Internal capability matrix must remain in docs');
+});
+test('work phases, Koshas and advisory roles keep complete native keyboard selectors',()=>{
+  assert.equal(content.filter(n=>n.tagName==='fieldset').length,3);
+  for(const [name,count] of Object.entries({phase:7,kosha:5,organ:6})) {
+    const radios=content.filter(n=>n.tagName==='input'&&attr(n,'name')===name);
+    assert.equal(radios.length,count,name);
+    assert.equal(radios.filter(n=>n.attrs.some(a=>a.name==='checked')).length,1);
+    for(const radio of radios) {
+      assert.equal(attr(radio,'type'),'radio');
+      const panel=content.find(n=>attr(n,'id')===attr(radio,'aria-controls'));
+      assert.ok(panel,`${name} missing panel`);assert.ok(text(panel).trim().length>60);
+      assert.equal(panel.attrs.some(a=>a.name==='hidden'),!radio.attrs.some(a=>a.name==='checked'));
+    }
+  }
+  const faq=content.find(n=>attr(n,'id')==='faq');
+  assert.match(text(faq),/0\.8/); assert.match(text(faq),/optional|preview|development/i);
+  for(const owner of ['PAI','GSD','OmniRoute']) assert.ok(text(content[0]).includes(owner));
+});
+test('curated links and Product Hunt badge support evaluation without invented proof',()=>{
+  const links=content.filter(n=>n.tagName==='a');
+  assert.ok(links.length<=18,`Expected curated links, found ${links.length}`);
+  const badge=links.find(n=>attr(n,'class')?.includes('product-hunt-badge'));
+  assert.ok(badge);assert.equal(attr(badge,'href'),'https://www.producthunt.com/products/temperance-engine?launch=temperance-engine');
+  assert.match(text(badge),/Product Hunt/);assert.match(text(badge),/November 6|Nov 6/);
+  assert.doesNotMatch(text(badge),/upvotes|#1|top product|product of the day/i);
+  for(const link of links) assert.doesNotMatch(attr(link,'href'),/docs\/plans|metadata\.json|\/package\/router|\/src\//);
+  assert.equal(content.filter(n=>n.tagName==='form').length,0);
+  assert.equal(content.filter(n=>n.tagName==='button').length,1);
+  assert.ok(!markup.includes('/Users/'));assert.ok(!markup.includes('127.0.0.1'));
 });

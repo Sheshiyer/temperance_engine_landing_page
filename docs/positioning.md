@@ -1,6 +1,6 @@
 # Temperance Engine positioning and source map
 
-Updated 2026-11-02. This document records the approved website and draft messaging. It is not runtime qualification or a release receipt.
+Updated 2026-11-02. The current product polish supersedes the earlier architecture-heavy website presentation below. Technical claim records remain documentation; they are not rendered product copy.
 
 ## Product direction
 
@@ -10,7 +10,7 @@ Temperance Engine is an **AI operator system**, a shared operating layer for AI 
 - Product Hunt tagline: **A shared operating layer for your AI coding tools**
 - Product Hunt description: Temperance Engine brings a shared operating layer to your AI coding tools. Connect project context, reusable skills, structured workflows, model routing, and verification in one configurable local runtime. Start with guided onboarding, inspect what is enabled, and keep control of approvals and changes.
 
-The website introduction is: Temperance Engine connects project context, reusable skills, structured workflows, model routing, and verification across your AI coding tools. Set up a configurable local operator runtime, choose the integrations you need, and keep control of approvals and changes.
+The website introduction is: Keep project context, skills, model routing and a clear work loop together. Temperance Engine connects the pieces around your coding agents, so you can focus on the work you want to do.
 
 ## Claim map
 
@@ -49,7 +49,7 @@ Keep v1.1 clean-host qualification, live hosted-router authentication, qualified
 This branch is for a Vercel preview. Production must stay at its current deployment until the owner reviews the preview. Root verification must record actual browser and deployment observations in ISA before marking those criteria complete. The existing Product Hunt launch is scheduled for November 6, 2026, 12:01 AM PST; preserve that schedule. Earlier unscheduled observations are superseded. A new website or description does not accept earlier rejected product graphs or remove runtime holds.
 
 
-## Expanded architecture story — November 2 iteration
+## Historical expanded architecture story — superseded presentation
 
 The fifteen-section experience starts from the restored cinematic React/GSAP source at7e55a26. It adds native-radio educational selectors for an illustrative task, architecture connections, five Koshas, seven phases, six advisory organs and core/profile/company comparison. All panels are read-only explanations; inactive panels remain available in the DOM and selection neither dispatches work nor reads a local store.
 
@@ -60,3 +60,16 @@ Koshas classify work, not security boundaries. Advisory organs, onboarding infra
 No public source fixture proves installation, actual native callbacks, provider authentication or acceptance. v1.1 clean-host, live hosted auth, qualified long-context and durable recovery remain held. Later containment pressure/process/lock changes are a separate promotion. Superset and Constellation remain retired.
 
 Website source implementation does not update the existing Product Hunt editor, push a branch, deploy a preview or promote production. Root owns those authorized next steps and their readback evidence.
+
+
+## Current product polish — November 2
+
+The owner requested a product-focused experience with internal commentary removed. The current page has nine sections and approximately1,700words including all selectable content. It keeps the cinematic hero and manually played architecture film, then explains practical benefits, seven work phases, five Koshas, optional advisory roles, integrations and setup. Three keyboard-accessible native-radio selectors provide18 explanatory panels. The concise FAQ describes current availability without exposing implementation reviews, private profile inventories or verification bookkeeping.
+
+The primary hero action leads to getting started; the secondary action jumps to the30-second film. The film retains its local poster, descriptive captions, transcript and explicit playback controls. SEO, canonical and social metadata remain useful product metadata.
+
+Removed from the rendered product flow: per-panel source-contract links, revision and capability matrices, receipt/fixture/acceptance commentary, private-profile inventory counts, repeated caveats and obsolete data. Curated documentation links remain available for readers who want installation or compatibility detail. Technical source lineage and known qualification limits remain documented here and in the product repository.
+
+The custom Product Hunt badge links to the existing verified listing and says Launching November6. The launch is scheduled for November6,2026,12:01AM PST. Official badge controls offered no usable embed for the scheduled item; no official embed ID, ranking or votes were invented. This site edit does not change that schedule.
+
+Source production note: a bounded no-history Phloem Opus request was attempted through the normal build helper. Host-pressure admission queued for120seconds and refused before authentication or inference. The isolated worker then completed the authorized bounded source changes. No Opus production attribution is claimed for this polish. Browser/release evidence is recorded separately by the owner.
