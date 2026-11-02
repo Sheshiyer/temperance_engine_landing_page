@@ -50,6 +50,7 @@ test('every rendered local anchor resolves and links have useful names',()=>{
   for(const link of content.filter(n=>n.tagName==='a')){
     const href=attr(link,'href'); assert.ok(href);
     if(href.startsWith('#')) assert.ok(ids.includes(href.slice(1)),`dangling anchor ${href}`);
+    else if(href.startsWith('/assets/')) assert.match(href,/^\/assets\/temperance-architecture-30s-(transcript\.md|captions\.vtt)$/);
     else assert.equal(new URL(href).protocol,'https:');
     assert.ok((attr(link,'aria-label')||text(link)).trim());
   }
@@ -89,7 +90,9 @@ test('reduced-motion rendering keeps the poster without an inoperative media con
   try {
     globalThis.window={matchMedia:()=>({matches:true})};
     const reducedNodes=descendants(parse(renderToStaticMarkup(createElement(App))));
-    assert.equal(reducedNodes.filter(n=>n.tagName==='source').length,0);
+    const heroVideo=reducedNodes.find(n=>n.tagName==='video'&&attr(n,'class')==='cinematic-video');
+    assert.equal(descendants(heroVideo).filter(n=>n.tagName==='source').length,0);
+    assert.equal(reducedNodes.filter(n=>n.tagName==='video'&&attr(n,'class')==='architecture-film-player').length,1);
     assert.equal(reducedNodes.filter(n=>n.tagName==='button'&&attr(n,'class')==='motion-toggle').length,0);
     assert.ok(reducedNodes.some(n=>n.tagName==='img'&&attr(n,'class')==='hero-poster'));
   } finally {
@@ -140,11 +143,41 @@ test('source links pin released claims and no controls imply runtime execution',
   const links=content.filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
   const sourceLinks=links.filter(h=>h.includes('/blob/'));
   assert.ok(sourceLinks.length>8);
-  assert.ok(sourceLinks.every(h=>/\/blob\/(42b391b44b7655972d9322d87aa3865956a5165e|cf0583e863adba1758aa12b1b53e808087c6e417)\//.test(h)));
+  assert.ok(sourceLinks.every(h=>/\/blob\/(42b391b44b7655972d9322d87aa3865956a5165e|cf0583e863adba1758aa12b1b53e808087c6e417|d36da98bfc12783aa89710744d84e1046e8fbe4f)\//.test(h)));
   assert.ok(sourceLinks.some(h=>h.endsWith('/docs/plans/2026-11-02-portable-capabilities.md')));
   assert.ok(links.includes('https://www.producthunt.com/products/temperance-engine?launch=temperance-engine'));
   assert.equal(content.filter(n=>n.tagName==='button').length,1);
   for(const input of content.filter(n=>n.tagName==='input')) assert.equal(attr(input,'type'),'radio');
   assert.ok(!markup.includes('/Users/'));
   assert.ok(!markup.includes('127.0.0.1'));
+});
+
+
+test('architecture film is controlled, non-autoplay and has equivalent caption/transcript routes',async()=>{
+  const film=content.find(n=>n.tagName==='video'&&attr(n,'class')==='architecture-film-player');
+  assert.ok(film);
+  assert.ok(film.attrs.some(a=>a.name==='controls'));
+  assert.equal(film.attrs.some(a=>a.name==='autoplay'),false);
+  assert.equal(film.attrs.some(a=>a.name==='loop'),false);
+  assert.equal(attr(film,'preload'),'none');
+  assert.equal(attr(film,'width'),'1920'); assert.equal(attr(film,'height'),'1080');
+  assert.equal(attr(film,'poster'),'/assets/temperance-architecture-30s-poster.jpg');
+  assert.ok(content.some(n=>attr(n,'id')===attr(film,'aria-labelledby')));
+  assert.ok(content.some(n=>attr(n,'id')===attr(film,'aria-describedby')));
+  const children=descendants(film);
+  assert.equal(attr(children.find(n=>n.tagName==='source'),'src'),'/assets/temperance-architecture-30s.mp4');
+  const captions=children.find(n=>n.tagName==='track');
+  assert.equal(attr(captions,'kind'),'captions'); assert.equal(attr(captions,'srclang'),'en');
+  assert.equal(attr(captions,'src'),'/assets/temperance-architecture-30s-captions.vtt');
+  assert.ok(content.some(n=>n.tagName==='a'&&attr(n,'href')==='/assets/temperance-architecture-30s-transcript.md'));
+  for(const path of ['/assets/temperance-architecture-30s.mp4','/assets/temperance-architecture-30s-poster.jpg','/assets/temperance-architecture-30s-captions.vtt','/assets/temperance-architecture-30s-transcript.md']) await access(resolve(root,`dist${path}`));
+  const captionText=await readFile(resolve(root,'dist/assets/temperance-architecture-30s-captions.vtt'),'utf8');
+  assert.ok(captionText.startsWith('WEBVTT'));
+});
+test('installed Claude tooling is a dated optional profile disclosure with exact alignment sources',()=>{
+  const details=content.find(n=>n.tagName==='details'&&attr(n,'class')?.includes('tooling-details'));
+  assert.ok(details); const copy=text(details);
+  for(const phrase of ['Installed Claude plugins and skills','Feature Dev 1.0.1','rust-analyzer 1.0.0','Supabase 0.1.16','Superpowers 7.0.0','Temperance rail mod 0.11.0','ten disabled installations','155 exposed top-level skill entries','not bundled portable defaults','different evidence levels']) assert.ok(copy.includes(phrase),phrase);
+  const urls=descendants(details).filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
+  for(const path of ['docs/architecture-explainer.md','CREDITS.md','docs/plans/2026-11-02-claude-tooling-metadata.json']) assert.ok(urls.includes(`https://github.com/Sheshiyer/temperance_engine/blob/d36da98bfc12783aa89710744d84e1046e8fbe4f/${path}`),path);
 });

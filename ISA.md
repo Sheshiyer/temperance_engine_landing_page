@@ -1,7 +1,7 @@
 ---
 project: Temperance Engine landing page
-phase: build
-progress: 58/66
+phase: verify
+progress: 63/66
 mode: algorithm
 updated: 2026-11-02
 ---
@@ -101,12 +101,12 @@ Current portable-core architecture iteration (historical ISC-13..40 remain dated
 
 Launch-package alignment extension (founder requests later on November 2):
 
-- [ ] ISC-59: Enhanced film has exactly30seconds at1920×1080 with a verified60fpsmaster.
-- [ ] ISC-60: Website exposes the verified30secondfilm with controls, poster and no automatic audio.
-- [ ] ISC-61: Website explains installed Claude mods, plugins and skills from dated metadata without presenting them as portable-core defaults.
-- [ ] ISC-62: Attributed tooling details distinguish product dependencies, optional services and film/site production tools.
+- [x] ISC-59: Enhanced film has exactly30seconds at1920×1080 with a verified60fpsmaster.
+- [x] ISC-60: Website exposes the verified30secondfilm with controls, poster and no automatic audio.
+- [x] ISC-61: Website explains installed Claude mods, plugins and skills from dated metadata without presenting them as portable-core defaults.
+- [x] ISC-62: Attributed tooling details distinguish product dependencies, optional services and film/site production tools.
 - [ ] ISC-63: README, explainer, website and Product Hunt use matching evidence-backed release claims.
-- [ ] ISC-64: Actual IAB verifies the final film controls and updated mode/tooling content without console application errors.
+- [x] ISC-64: Actual IAB verifies the final film controls and updated mode/tooling content without console application errors.
 - [ ] ISC-65: Final protected preview is READY at the media/content revision with unchanged production and protection.
 - [ ] ISC-66: Final launch-editor readback preserves November6schedule, identity, website, source, maker, art and tags.
 
@@ -194,3 +194,5 @@ Browser and external observations must be filled by the root verifier; no browse
 - 2026-11-02 refined: FounderrequestedactualenhancedfilmviaPhloemconnectedS-tier,andconsistentwebsite/ProductHunt/explainer/READMEupdates. SeparateOpus5.5handoffisnowanexecutionbrief,notcompletionofthenewrenderrequest. OriginaleditableCanvas2D15secondshowreelwasfoundinpublicpackage/showreel;reuseitsvisualsystem.
 
 - 2026-11-02 refined: The founder clarified that “Claude mods” means installed mods, plugins and skills. ISC-61 now verifies that requested inventory story. PAI work modes and Claude permission modes are secondary context, with separate ownership. Metadata came from the Claude CLI and selected manifest fields; no private stores or plugin state were exported.
+
+- 2026-11-02 final media/local IAB evidence: master30.000s at1920×1080/60fps/1800decodedframes; web30.000s at1920×1080/30fps/900decodedframes. New controlled player has noautoplay/loop and preloadnone; full localIAB playback reaches ended=true/time30 with no mediaerror. Caption HTMLTrackElement.readyState2 confirms loaded; sixcueVTT validated independently. Actual320CSSpx viewport has scrollWidth320 and visible manualplayer; at reducedmotion hero sources0/paused/noambienttoggle while film staysmanualpaused. Browser console errors/warnings0. Installedplugins disclosure opens and shows currentdatedoptionalprofile distinctions. All13websitechecks plusproductionbuild pass; 3726words includinghiddenpanels/disclosures. Source/CREDITS links now pin complete productmediareview d36da98bfc12783aa89710744d84e1046e8fbe4f. Phloem creative source was not accepted; film is a local review adaptation. Production promotion and runtimeacceptance remain held. Finalprotectedpreview andProductHuntreadback remain pending.

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { phases, koshas, organs, architecture, profiles, capabilityRows, sourceRoot, reviewRoot } from "./architecture-data.js";
+import { phases, koshas, organs, architecture, profiles, capabilityRows, sourceRoot, reviewRoot, alignmentRoot } from "./architecture-data.js";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const github = "https://github.com/Sheshiyer/temperance_engine";
@@ -88,6 +88,15 @@ export default function App() {
     </section>
     <section id="operating-layer" className="architecture-section" aria-labelledby="cycle-title">
       <Heading number="02" eyebrow="One complete work cycle" title={<span id="cycle-title">Follow an idea all the way to evidence.</span>}>Imagine improving a project’s keyboard search. Select a phase to follow this illustrative task. Nothing here runs a worker or reads your machine.</Heading>
+      <figure className="architecture-film liquid-glass" aria-labelledby="architecture-film-title">
+        <div className="film-heading"><p className="eyebrow">Watch the architecture</p><h3 id="architecture-film-title">A 30-second tour of the operating layer.</h3><p id="architecture-film-description">An illustrative architecture animation. Start playback when you choose, or read the same story in the transcript.</p></div>
+        <video className="architecture-film-player" controls playsInline preload="none" width="1920" height="1080" poster="/assets/temperance-architecture-30s-poster.jpg" aria-labelledby="architecture-film-title" aria-describedby="architecture-film-description">
+          <source src="/assets/temperance-architecture-30s.mp4" type="video/mp4" />
+          <track kind="captions" src="/assets/temperance-architecture-30s-captions.vtt" srcLang="en" label="English captions" default />
+          Your browser does not support this video. Use the transcript below.
+        </video>
+        <figcaption><a href="/assets/temperance-architecture-30s-transcript.md">Read the film transcript</a><a href="/assets/temperance-architecture-30s-captions.vtt">Download captions (VTT)</a><a href={`${alignmentRoot}/docs/architecture-explainer.md`}>Read the architecture explainer ↗</a></figcaption>
+      </figure>
       <div className="example-banner"><span className="status-dot" /> Illustrative task · Make search usable with a keyboard</div>
       <Choices label="Illustrative task phase" name="cycle" items={phases} selected={cycle} onChange={setCycle} />
       <div className="cycle-display liquid-glass">{phases.map((item,i) => <Panel key={item.id} name="cycle" id={item.id} selected={cycle}><div className="cycle-index" aria-hidden="true">{String(i+1).padStart(2,'0')}<small>/ 07</small></div><div><p className="eyebrow">{item.name} · illustrative, not a live run</p><h3>{item.output}.</h3><p>{item.example}</p><p className="fine-print">The useful result is a specific claim with its evidence and remaining limits. A completed example on this page is not a product acceptance receipt.</p></div></Panel>)}</div>
@@ -131,6 +140,13 @@ export default function App() {
     <section id="skills" className="architecture-section" aria-labelledby="skills-title">
       <Heading number="10" eyebrow="Skills and workflows" title={<span id="skills-title">Find the relevant capability. Keep the shared method.</span>}>Skills provide reusable behavior: a focused review, a design procedure or a browser verification workflow. Discovery and lazy loading let a configured host select what a task needs without loading an entire skill catalog into every session.</Heading>
       <div className="editorial-grid"><article><h3>Methodology keeps its name.</h3><p>PAI provides the current-state to ideal-state loop. GSD is an optional external planning backbone. ISA carries the project’s criteria and acceptance evidence. Temperance links these with supported client surfaces; it does not fork their authority or create another acceptance ledger.</p></article><article><h3>Bindings need evidence.</h3><p>A phase’s skill intent can request a capability while a host lacks a resolver or suitable active skill. That absence must stay visible. Lifecycle packs and wrappers need their supported client and installed prerequisites; a file in the source repository cannot prove a native hook ran.</p></article></div><SourceLink path="docs/gsd-manifest-spine.md">Read client and planning-spine setup</SourceLink>
+      <details className="tooling-details reference-details">
+        <summary>Installed Claude plugins and skills</summary>
+        <p>This optional Claude profile’s November 2 inventory records five enabled plugins: Feature Dev 1.0.1 for feature exploration and review, rust-analyzer 1.0.0 for Rust intelligence, Supabase 0.1.16 for development guidance, Superpowers 7.0.0 for planning and testing workflows, and the private Temperance rail mod 0.11.0 for phase and provenance projections.</p>
+        <p>The inventory also records ten disabled installations and 155 exposed top-level skill entries. Exposed entries are not 155 independent implementations or proof of invocation. Installed, enabled, available, invoked and accepted are different evidence levels. These optional profile choices are not bundled portable defaults; skills use hub-first discovery and selected spokes on demand.</p>
+        <p>PAI/Temperance work modes and Claude Code’s <a href="https://code.claude.com/docs/en/permissions">permission controls</a> remain separate from this plugin inventory.</p>
+        <div className="resource-links"><a className="text-link" href={`${alignmentRoot}/docs/architecture-explainer.md`}>Architecture and tooling explainer ↗</a><a className="text-link" href={`${alignmentRoot}/CREDITS.md`}>Owners, sources and plugin inventory ↗</a><a className="text-link" href={`${alignmentRoot}/docs/plans/2026-11-02-claude-tooling-metadata.json`}>Dated sanitized metadata ↗</a></div>
+      </details>
     </section>
     <section id="memory" className="architecture-section" aria-labelledby="memory-title">
       <Heading number="11" eyebrow="Memory and learning" title={<span id="memory-title">Useful continuity starts with provenance.</span>}>A next session needs enough trustworthy context to continue. It does not need every transcript, personal note or company record copied into one place. Selected evidence should retain its source, owner and time, including when it becomes stale.</Heading>
