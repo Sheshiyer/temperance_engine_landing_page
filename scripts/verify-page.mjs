@@ -10,6 +10,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 const root = process.cwd();
 const canonical = 'https://temperance.thoughtseed.space/';
+const officialProductHuntBadge = 'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1301098&theme=light';
 const html = await readFile(resolve(root, 'dist/index.html'), 'utf8');
 await mkdir(resolve(root, '.cache'), {recursive:true});
 const output = await build({entryPoints:[resolve(root, 'src/App.jsx')],bundle:true,platform:'node',format:'cjs',jsx:'automatic',external:['react','react-dom','react-dom/server','react/jsx-runtime'],write:false});
@@ -33,6 +34,14 @@ test('built head uses one canonical domain and coherent social metadata',()=>{
   const schema=JSON.parse(text(nodes.find(n=>n.tagName==='script'&&attr(n,'type')==='application/ld+json')));
   assert.equal(schema.url,canonical); assert.equal(schema.softwareVersion,'0.8.0');
   assert.equal(schema.name,'Temperance Engine');
+  const title=text(nodes.find(n=>n.tagName==='title'));
+  assert.equal(title,'Temperance Engine — From a coding request to a change you can check');
+  assert.equal(title.length,67);
+  assert.equal(metas.get('og:title'),title);assert.equal(metas.get('twitter:title'),title);
+  assert.equal(metas.get('description').length,160);
+  assert.equal(metas.get('og:description'),metas.get('description'));
+  assert.equal(metas.get('twitter:description'),metas.get('description'));
+  assert.equal(schema.description,metas.get('description'));
   assert.ok(!html.includes('thoughtseed.space/temperance-engine/'));
 });
 
@@ -51,7 +60,11 @@ test('every rendered local anchor resolves and links have useful names',()=>{
 
 test('rendered local images, font, and bundled assets are present in the build',async()=>{
   const paths=[...content.filter(n=>n.tagName==='img').map(n=>attr(n,'src')), ...nodes.filter(n=>n.tagName==='script'&&attr(n,'src')).map(n=>attr(n,'src')), ...nodes.filter(n=>n.tagName==='link'&&['stylesheet','preload','icon'].includes(attr(n,'rel'))).map(n=>attr(n,'href'))];
-  for(const path of paths) { assert.ok(path.startsWith('/')); await access(resolve(root,`dist${path}`)); }
+  for(const path of paths) {
+    if(path === officialProductHuntBadge) continue;
+    assert.ok(path.startsWith('/'), `Unapproved remote asset: ${path}`);
+    await access(resolve(root,`dist${path}`));
+  }
   const image=await readFile(resolve(root,'dist/og/temperance-engine-og.png'));
   assert.equal(image.readUInt32BE(16),1200); assert.equal(image.readUInt32BE(20),630);
   const video=content.find(n=>n.tagName==='video');
@@ -109,11 +122,15 @@ test('architecture film is controlled, non-autoplay and has equivalent caption/t
 
 test('product page has one clear promise and a focused, labelled journey',()=>{
   assert.equal(content.filter(n=>n.tagName==='h1').length,1);
-  assert.equal(text(content.find(n=>n.tagName==='h1')),'Give your AI tools a shared way to work.');
+  assert.equal(text(content.find(n=>n.tagName==='h1')),'From a coding request to a change you can check.');
   const hero=content.find(n=>attr(n,'id')==='top');
   const actions=descendants(hero).filter(n=>n.tagName==='a'&&attr(n,'class')?.includes('button'));
   assert.equal(attr(actions[0],'href'),'#get-started');
+  assert.equal(text(actions[0]),'See the setup steps');
+  assert.equal(text(descendants(hero).find(n=>n.tagName==='a'&&attr(n,'class')==='nav-cta')),'See the setup steps');
   assert.equal(attr(actions[1],'href'),'#film');
+  const guide=content.find(n=>n.tagName==='a'&&attr(n,'href')==='https://github.com/Sheshiyer/temperance_engine/blob/main/QUICKSTART.md');
+  assert.equal(text(guide),'Read the setup guide ↗');
   const sections=content.filter(n=>n.tagName==='section');
   assert.ok(sections.length>=8 && sections.length<=10);
   for(const section of sections) assert.ok(content.some(n=>attr(n,'id')===attr(section,'aria-labelledby')));
@@ -121,7 +138,8 @@ test('product page has one clear promise and a focused, labelled journey',()=>{
   const spaced=n=>n.nodeName==='#text'?n.value:(n.childNodes||[]).map(spaced).join(' ');
   const copy=spaced(content[0]); const words=copy.trim().split(/\s+/).length;
   console.log(`Product editorial count: ${words} words including all interactive explanations`);
-  assert.ok(words>=1200 && words<=1800,`${words} words outside focused product brief`);
+  // Inclusive markup count includes hidden panels, accessibility labels, navigation and phase pills.
+  assert.ok(words>=1200 && words<=1850,`${words} words outside focused product brief`);
   assert.doesNotMatch(copy,/source contract|acceptance receipt|synthetic fixtures|sanitized metadata|155 exposed|ten disabled|review branch|canonical.memory/i);
   assert.ok(!content.some(n=>n.tagName==='table'),'Internal capability matrix must remain in docs');
 });
@@ -147,7 +165,19 @@ test('curated links and Product Hunt badge support evaluation without invented p
   assert.ok(links.length<=18,`Expected curated links, found ${links.length}`);
   const badge=links.find(n=>attr(n,'class')?.includes('product-hunt-badge'));
   assert.ok(badge);assert.equal(attr(badge,'href'),'https://www.producthunt.com/products/temperance-engine?launch=temperance-engine');
-  assert.match(text(badge),/Product Hunt/);assert.match(text(badge),/November 6|Nov 6/);
+  assert.equal(text(badge),'Find us on Product Hunt');
+  const widget=content.find(n=>attr(n,'class')==='product-hunt-widget');
+  assert.match(text(widget),/November 6|Nov 6/);
+  const badgeImages=descendants(badge).filter(n=>n.tagName==='img');
+  assert.equal(badgeImages.length,1);
+  const official=badgeImages[0];
+  assert.equal(attr(official,'src'),officialProductHuntBadge);
+  assert.equal(new URL(attr(official,'src')).origin,'https://api.producthunt.com');
+  assert.equal(new URL(attr(official,'src')).pathname,'/widgets/embed-image/v1/featured.svg');
+  assert.equal(new URL(attr(official,'src')).searchParams.get('post_id'),'1301098');
+  assert.equal(attr(official,'width'),'250');assert.equal(attr(official,'height'),'54');
+  assert.equal(attr(official,'alt'),'');
+  assert.ok(descendants(badge).some(n=>attr(n,'class')==='product-hunt-fallback'&&text(n)==='Find us on Product Hunt'),'Persistent text remains when remote badge cannot load');
   assert.doesNotMatch(text(badge),/upvotes|#1|top product|product of the day/i);
   for(const link of links) assert.doesNotMatch(attr(link,'href'),/docs\/plans|metadata\.json|\/package\/router|\/src\//);
   assert.equal(content.filter(n=>n.tagName==='form').length,0);

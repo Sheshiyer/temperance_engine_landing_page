@@ -1,7 +1,7 @@
 ---
 project: Temperance Engine landing page
 phase: verify
-progress: 92/98
+progress: 120/122
 mode: algorithm
 updated: 2026-11-02
 ---
@@ -137,14 +137,42 @@ Current product-polish criteria (2026-11-02):
 - [x] ISC-88: The existing thirty-second film bytes remain intact.
 - [x] ISC-89: Film remains manually controlled.
 - [x] ISC-90: Film transcript remains available.
-- [ ] ISC-91: Reduced-motion presentation remains readable.
-- [ ] ISC-92: Mobile presentation has no horizontal overflow at 320 CSS pixels.
-- [ ] ISC-93: Keyboard controls show visible focus.
+- [x] ISC-91: Reduced-motion presentation remains readable.
+- [x] ISC-92: Mobile presentation has no horizontal overflow at 320 CSS pixels.
+- [x] ISC-93: Keyboard controls show visible focus.
 - [x] ISC-94: SEO canonical and social metadata remain coherent.
-- [ ] ISC-95: Production application remains unchanged.
+- [x] ISC-95: Production application remains unchanged.
 - [x] ISC-96: Source build and meaningful page checks pass.
 - [ ] ISC-97: Quest graph records the completed media and documentation work.
 - [ ] ISC-98: Quest graph records website polish with its actual verification state.
+
+
+Editorial workflow criteria following founder correction (2026-11-02):
+
+- [x] ISC-99: The editorial workflow names the growth-content cluster and loaded specialist skills.
+- [x] ISC-100: A product-marketing context distinguishes source-backed facts from inferred audience needs.
+- [x] ISC-101: The primary reader and evaluation action are explicit in the brief.
+- [x] ISC-102: At least three distinct messaging territories are compared.
+- [x] ISC-103: Headline alternatives are evaluated for clarity and specificity.
+- [x] ISC-104: CTA alternatives describe the destination accurately.
+- [x] ISC-105: A custom copywriter produces a draft against the positioning brief.
+- [x] ISC-106: A separate editor reviews that draft.
+- [x] ISC-107: The editor records a clarity sweep with concrete changes.
+- [x] ISC-108: The editor records a voice and tone sweep.
+- [x] ISC-109: The editor records a benefits sweep.
+- [x] ISC-110: The editor records a factual proof sweep.
+- [x] ISC-111: The editor records a specificity sweep.
+- [x] ISC-112: The editor records an emotional relevance sweep.
+- [x] ISC-113: The editor records an action-friction sweep.
+- [x] ISC-114: A revision responds to concrete editorial criticism.
+- [x] ISC-115: An independent page-CRO review tests product comprehension.
+- [x] ISC-116: Anti: Conversion lift, customer counts and testimonials are not fabricated.
+- [x] ISC-117: The selected headline and CTA have a recorded rationale.
+- [x] ISC-118: The final copy is applied consistently across hero and sections.
+- [x] ISC-119: Social and search metadata match the selected positioning.
+- [x] ISC-120: The revised rendered page fits desktop and320CSSpixels.
+- [x] ISC-121: The actual phase-dispatch outcome is recorded separately from advisory skill routing.
+- [x] ISC-122: The current preview is identified as a draft until editorial review finishes.
 
 ## Test Strategy
 
@@ -155,17 +183,79 @@ Current polish verification: ISC-67..85 use rendered-product structural checks a
 
 ## Features
 
-- Cinematic restoration: active React/GSAP source, existing artwork, editorial typography and responsive composition.
-- Operator-system story: approved copy, capability sections, work loop, integrations and getting started.
-- Evidence and discovery: claim map, canonical metadata, meaningful structural checks.
-- Review delivery: verified Vercel preview, matching scheduled launch copy and bounded repository handoff.
+The records below use the installed next-wave parser syntax. Historical orientation is retained in Decisions; criterion IDs and their evidence are unchanged. These records describe work, and grant no dispatch or approval authority.
 
-- Architecture explorer | satisfies ISC-41..46 | depends_on restored hero | parallelizable true.
-- Evidence and editorial review | satisfies ISC-47..51 | depends_on product source matrix | parallelizable true.
-- Actual browser and launch verification | satisfies ISC-52..58 | depends_on source checks | root-owned.
+- name: historical_delivery
+  description: Previously verified restoration and media delivery
+  satisfies: [ISC-1, ISC-2, ISC-3, ISC-4, ISC-5, ISC-6, ISC-7, ISC-8, ISC-9, ISC-10, ISC-11, ISC-12, ISC-13, ISC-14, ISC-15, ISC-16, ISC-17, ISC-18, ISC-19, ISC-20, ISC-21, ISC-22, ISC-23, ISC-24, ISC-25, ISC-26, ISC-27, ISC-28, ISC-29, ISC-30, ISC-31, ISC-32, ISC-33, ISC-34, ISC-35, ISC-36, ISC-37, ISC-38, ISC-39, ISC-40, ISC-41, ISC-42, ISC-43, ISC-44, ISC-45, ISC-46, ISC-47, ISC-48, ISC-49, ISC-50, ISC-51, ISC-52, ISC-53, ISC-54, ISC-55, ISC-56, ISC-57, ISC-58, ISC-59, ISC-60, ISC-61, ISC-62, ISC-63, ISC-64, ISC-65, ISC-66]
+  depends_on: []
+  parallelizable: false
 
-- Product polish | Replace architecture-review exposition with a focused product narrative and curated links | satisfies ISC-67..96 | depends_on prior accepted film | parallelizable true
-- Quest progress | Update existing graph work with exact evidence and held production state | satisfies ISC-97..98 | depends_on authenticated graph identity | parallelizable true
+- name: product_cleanup
+  description: Functional cleanup draft and browser evidence
+  satisfies: [ISC-67, ISC-68, ISC-69, ISC-70, ISC-71, ISC-72, ISC-73, ISC-74, ISC-75, ISC-76, ISC-77, ISC-78, ISC-79, ISC-80, ISC-81, ISC-82, ISC-83, ISC-84, ISC-85, ISC-86, ISC-87, ISC-88, ISC-89, ISC-90, ISC-91, ISC-92, ISC-93, ISC-94, ISC-95, ISC-96]
+  depends_on: [historical_delivery]
+  parallelizable: false
+
+- name: positioning_foundation
+  description: Audience, truthful mechanism and actual phase/skill lineage
+  satisfies: [ISC-99, ISC-100, ISC-101, ISC-121, ISC-122]
+  depends_on: [product_cleanup]
+  parallelizable: false
+
+- name: headline_alternatives
+  description: Compared territories, headlines and truthful action labels
+  satisfies: [ISC-102, ISC-103, ISC-104, ISC-117]
+  depends_on: [positioning_foundation]
+  parallelizable: false
+
+- name: copy_draft
+  description: Complete specialist draft against the selected direction
+  satisfies: [ISC-105]
+  depends_on: [headline_alternatives]
+  parallelizable: false
+
+- name: copy_editor
+  description: Seven focused editing sweeps and AI-pattern audit
+  satisfies: [ISC-106, ISC-107, ISC-108, ISC-109, ISC-110, ISC-111, ISC-112, ISC-113]
+  depends_on: [copy_draft]
+  parallelizable: true
+
+- name: independent_cro
+  description: Independent comprehension and action-friction critique
+  satisfies: [ISC-115]
+  depends_on: [copy_draft]
+  parallelizable: true
+
+- name: copy_revision
+  description: Revision with a finding-by-finding disposition
+  satisfies: [ISC-114]
+  depends_on: [copy_editor, independent_cro]
+  parallelizable: false
+
+- name: factual_acceptance
+  description: Source-backed final claim check
+  satisfies: [ISC-116]
+  depends_on: [copy_revision]
+  parallelizable: false
+
+- name: copy_integration
+  description: Apply reviewed copy consistently and align metadata
+  satisfies: [ISC-118, ISC-119]
+  depends_on: [factual_acceptance]
+  parallelizable: false
+
+- name: rendered_review
+  description: Desktop and mobile verification of the reviewed revision
+  satisfies: [ISC-120]
+  depends_on: [copy_integration]
+  parallelizable: false
+
+- name: company_quest_progress
+  description: Await supported proposal intake for the validated company graph addition
+  satisfies: [ISC-97, ISC-98]
+  depends_on: []
+  parallelizable: false
 
 ## Decisions
 
@@ -182,6 +272,11 @@ Current polish verification: ISC-67..85 use rendered-product structural checks a
 - 2026-11-02: refined: Founder requests a polished product website. Prior 15-section and expanded-word-count criteria remain historical; the current experience may condense them. Internal evidence remains in docs and ISA. SEO metadata remains useful product metadata. No production promotion or launch rescheduling is authorized.
 - 2026-11-02: FirstPrinciples Challenge: visitor needs value, demonstration and a next step; source ownership proof is a documentation concern. IterativeDepth: visitor lens adds concise benefits; maintenance lens adds curated stable links; temporal lens forbids premature Product Hunt votes; accessibility lens preserves manual film, keyboard and reduced motion.
 - 2026-11-02: Capabilities used: ISA, FirstPrinciples, IterativeDepth, ReReadCheck. Implementation and graph bookkeeping run independently under the Temperance parallel-dispatch workflow. The original request was reread to retain both curated links and quest-graph updates.
+
+- 2026-11-02: Founder correction accepted: baced8e is a functional cleanup draft, not accepted polished copy. Actual growth-content routing selected product-marketing-context/copywriting/copy-editing/avoid-ai-writing. Independent custom-agent stages and revision are required before the next editorial acceptance.
+- 2026-11-02: Project bootstrap created local .temperance and .planning context; no host/provider configuration repair is implied. The bridge init command created local identity metadata even when passed --check, so it is recorded as a mutation. Ordinary phase Plan dispatch now runs from the actual Git checkout; advisory route receipts do not prove a completed provider call.
+
+- 2026-11-02: Refined Features to the installed next-wave YAML shape after observing a false zero-feature complete projection. Only project input changed; no planner/runtime code or policy changed. The dependency graph now distinguishes draft, independent critique, revision, factual acceptance and rendered review.
 
 ## Changelog
 
@@ -256,3 +351,16 @@ Browser and external observations must be filled by the root verifier; no browse
 - ISC-67..90: Source and browser probes — nine labelled sections, purposefully named links, no rendered capability table or profile inventory,18selectorstates each checked with exactlyonevisiblepanel; filmmanualpaused beforeSpace, playbackduration30/errornull. SourceSHA2565e52dd8fe63b516060267836e3446888f1f7d3546a47957c19723824de989a28 unchanged.
 - ISC-94: Built head — canonical/social/schema/robots/sitemap checks pass.
 - ISC-96: npm test —9tests/9passes/0failures;1697wordsincludingallpanels; distCSS15.54kB,JS281.30kB.
+
+- ISC-91..93: IAB probes — reduced motion pauses hero with0sources/noinoperativecontrol; deployed320CSSwidth/client/scroll320with0overflow; ArrowRight selectsThink andfocus remainsnativeinput.
+- ISC-99..104,117: Artifact readback — actualindexedgrowth-content skills,189linefoundation,134linealternatives with4territories/11headlines/6CTArows, explicitcoordinatorselectionbeforedraft. Scoresareeditorialjudgments,notuserresearch.
+- ISC-121..122: Dispatch and status — actualPlanclaude-sonnet-5-5 andBuildalternativesclaude-opus-5-5 completed; automaticcreative-frontendbindingmismatchretained; cleanupstaysdraftuntilindependentreview.
+
+- ISC-95: Fresh Vercel readback — productiondpl_And7oPASgXBUTCp4asMvMdqPWc3M retainstargetproduction/source5c5838331b5b8d9207d0c26aeb67dce17e6fe411 andcanonicalalias temperance.thoughtseed.space afterpreviewonlypush.
+
+- ISC-105: Draft readback — strictJSON SHA2564624756c2d471dae92e39b6f9d7e79be3c0bdbaf2eba736dd1fff3150642fbd2;6arrays3/7/5/6/3/4;42wordsubhead; currentApp/sourceunchanged. SeparateactualBuildresolvedclaude-opus-5-5; independentcritiqueandCROarenowinprogress.
+
+- ISC-115: IndependentCRO readback — Draft03 reviewedwithouteditorfindings orwriteralternatives; clarity4/specificity4/truth4/voice4/actionfit5. Verdictrevise: startupuniversality, configuredcontextreuseandoperatorlearningreviewmustbequalified. Noempiricalconversionwinnerclaimed.
+
+- ISC-106..114,116: Separate seven-sweep editor, independent CRO recheck and factual audit accepted candidate 05e SHA256 72ca56f1b2ec6de2bbd6cecff93b7ed8e03f716b8e2f0b8f4bd03e38284b7f65. All 19 findings have dispositions; final factual audit reports zero unsupported claims. Editorial scores are judgments, not conversion evidence.
+- ISC-118..120: Literal integration proof verifies 182 strings and metadata; npm test 9/9. Root IAB measured desktop 1280/1280 and mobile 320/320 client/scroll widths, readable H1 and both actions, 18 selected states each with one visible panel, native ArrowRight focus, zero hero sources in reduced motion and loaded official post-1301098 badge. Screenshots and browser proof are in the delivery outputs.

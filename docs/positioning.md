@@ -6,9 +6,9 @@ Updated 2026-11-02. The current product polish supersedes the earlier architectu
 
 Temperance Engine is an **AI operator system**, a shared operating layer for AI coding tools. The audience is developers and small teams working across coding clients. Installation is the distribution and setup path; it is not the primary customer promise.
 
-- Website headline: **Give your AI tools a shared way to work.**
+- Website headline: **From a coding request to a change you can check.**
 - Product Hunt tagline: **A shared operating layer for your AI coding tools**
-- Product Hunt description: Temperance Engine brings a shared operating layer to your AI coding tools. Connect project context, reusable skills, structured workflows, model routing, and verification in one configurable local runtime. Start with guided onboarding, inspect what is enabled, and keep control of approvals and changes.
+- Product Hunt description: Temperance Engine packages project instructions, a seven-phase work loop, skill-cluster discovery and OmniRoute routing for model requests, set up around coding clients such as OpenCode, Cursor, Claude Code or Codex. Write the expected behavior and checks first, then check the change against them. Preview the installer with a dry run and try it on one project.
 
 The website introduction is: Keep project context, skills, model routing and a clear work loop together. Temperance Engine connects the pieces around your coding agents, so you can focus on the work you want to do.
 
@@ -70,6 +70,8 @@ The primary hero action leads to getting started; the secondary action jumps to 
 
 Removed from the rendered product flow: per-panel source-contract links, revision and capability matrices, receipt/fixture/acceptance commentary, private-profile inventory counts, repeated caveats and obsolete data. Curated documentation links remain available for readers who want installation or compatibility detail. Technical source lineage and known qualification limits remain documented here and in the product repository.
 
-The custom Product Hunt badge links to the existing verified listing and says Launching November6. The launch is scheduled for November6,2026,12:01AM PST. Official badge controls offered no usable embed for the scheduled item; no official embed ID, ranking or votes were invented. This site edit does not change that schedule.
+The earlier custom-badge observation is superseded by the November 2 public-source check: the product README supplies post ID 1301098, and the official Product Hunt SVG for that ID was verified separately. The current page uses that asset, a persistent text link to the existing listing, and a separate Launching November 6 date. It adds no vote count or ranking claim. The launch remains scheduled for November 6, 2026, 12:01 AM PST.
 
-Source production note: a bounded no-history Phloem Opus request was attempted through the normal build helper. Host-pressure admission queued for120seconds and refused before authentication or inference. The isolated worker then completed the authorized bounded source changes. No Opus production attribution is claimed for this polish. Browser/release evidence is recorded separately by the owner.
+The November 2 editorial integration applies the independently checked candidate literally across 53 App fields and 129 data strings. Metadata and review annotations remain outside display copy. The hero, nine sections, three native-radio explorers, 18 panels and film behavior retain their existing structure. The installed Build guard refused the mechanical integration attempt after a bounded host-pressure wait; the owner authorized deterministic local application of the accepted strings. This application makes no additional provider-production or browser-fit claim.
+
+Editorial production: a routed Plan completed on claude-sonnet-5-5. Separate alternatives, draft and revision requests completed through Phloem on claude-opus-5-5. A separate native editor completed seven sweeps after its governed Verify request timed out without output; an independent native CRO reviewer and factual auditor checked the revision. The later mechanical integration request was refused by the normal host-pressure guard, then applied locally from the accepted strings. Provider attribution applies only to the recorded completed stages. Root IAB checks cover actual desktop/mobile rendering, all 18 selector states, keyboard operation, reduced motion and the official badge.

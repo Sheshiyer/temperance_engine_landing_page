@@ -30,6 +30,6 @@ The site uses existing local artwork, a video with a local poster fallback and p
 
 Prepare a preview for owner review. Do not deploy to production, promote a preview, merge to the production branch, or change the public domain without that later review. Record the exact preview and production references in ISA. Before production approval, rollback is simply to leave production untouched and close or revert this implementation branch. Preserve the existing production deployment for any later promotion rollback.
 
-The existing Product Hunt listing is scheduled for November6,2026,12:01AM PST and is not published. The linked custom launch badge carries no vote count, ranking or invented official embed ID. Earlier unscheduled observations in the historical handoff are superseded.
+The existing Product Hunt listing is scheduled for November 6, 2026, 12:01 AM PST and is not published. The page uses Product Hunt's official badge asset for the product's public post ID 1301098, with a persistent text link and the launch date displayed separately. The page adds no vote count or ranking claim. Earlier unscheduled and custom-badge observations in the historical handoff are superseded.
 
 Done by [Thoughtseed Labs](https://thoughtseed.space/).
