@@ -1,6 +1,6 @@
 ---
 project: Temperance Engine landing page
-phase: complete
+phase: verify
 progress: 66/66
 mode: algorithm
 updated: 2026-11-02
@@ -200,3 +200,5 @@ Browser and external observations must be filled by the root verifier; no browse
 - 2026-11-02 final launch verification, ISC-63 and ISC-66: The same Product Hunt editor saved the 387-character description and showed Changes saved. Reload showed No changes and the exact description. AX readback preserves the name, tagline, one gallery image, Open Source / Developer Tools / GitHub tags, Maker @shesh_iyer and November 6th, 2026, 12:01 AM PST. The Manage links dialog retains https://temperance.thoughtseed.space/ and https://github.com/Sheshiyer/temperance_engine. No schedule, publication or gallery replacement control was used.
 
 - 2026-11-02 final protected preview, ISC-65: Deployment dpl_EHQMSzBwKgp7KLuWP9hyqJ5gQDAR is READY with target=null at content revision 4b8e77fa94c3c2deaa1b9844ddac4ce20a7d58c1. IAB loads index-C9VEXb_r.js and plays the full film to ended=true at 30 seconds, with no media error or console errors/warnings. Descriptive captions are optional. Latest production remains dpl_And7oPASgXBUTCp4asMvMdqPWc3M at 5c5838331b5b8d9207d0c26aeb67dce17e6fe411; protection remains all_except_custom_domains. All 66 website review criteria are complete within preview scope. Product ISC-879 for Phloem S-tier creative delivery remains held; production promotion is outside this scope.
+
+- 2026-11-02 Phloem Opus film iteration: A completed response reporting claude-opus-5-5 supplied the three new scene callbacks. Independent source and representative-frame review passed. Master and web movies were replaced with the verified Opus refinement; decoded counts are 1,800 at1080p60 and900 at1080p30, both30.000seconds. All five enabled plugins are shown. The original renderer/artwork/score and local render steps retain separate attribution. Exact source links now pin product75f3de1a765255d9c734c2dcffb087ad9bda9157. Prior local-review evidence remains historical; final new-preview browser/readback checks are pending for this iteration.

@@ -1,6 +1,6 @@
 export const publicRevision = '42b391b44b7655972d9322d87aa3865956a5165e';
 export const reviewRevision = 'cf0583e863adba1758aa12b1b53e808087c6e417';
-export const alignmentRevision = 'd36da98bfc12783aa89710744d84e1046e8fbe4f';
+export const alignmentRevision = '75f3de1a765255d9c734c2dcffb087ad9bda9157';
 export const alignmentRoot = `https://github.com/Sheshiyer/temperance_engine/blob/${alignmentRevision}`;
 export const reviewRoot = `https://github.com/Sheshiyer/temperance_engine/blob/${reviewRevision}`;
 export const sourceRoot = `https://github.com/Sheshiyer/temperance_engine/blob/${publicRevision}`;

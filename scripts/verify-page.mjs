@@ -143,7 +143,7 @@ test('source links pin released claims and no controls imply runtime execution',
   const links=content.filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
   const sourceLinks=links.filter(h=>h.includes('/blob/'));
   assert.ok(sourceLinks.length>8);
-  assert.ok(sourceLinks.every(h=>/\/blob\/(42b391b44b7655972d9322d87aa3865956a5165e|cf0583e863adba1758aa12b1b53e808087c6e417|d36da98bfc12783aa89710744d84e1046e8fbe4f)\//.test(h)));
+  assert.ok(sourceLinks.every(h=>/\/blob\/(42b391b44b7655972d9322d87aa3865956a5165e|cf0583e863adba1758aa12b1b53e808087c6e417|75f3de1a765255d9c734c2dcffb087ad9bda9157)\//.test(h)));
   assert.ok(sourceLinks.some(h=>h.endsWith('/docs/plans/2026-11-02-portable-capabilities.md')));
   assert.ok(links.includes('https://www.producthunt.com/products/temperance-engine?launch=temperance-engine'));
   assert.equal(content.filter(n=>n.tagName==='button').length,1);
@@ -179,5 +179,5 @@ test('installed Claude tooling is a dated optional profile disclosure with exact
   assert.ok(details); const copy=text(details);
   for(const phrase of ['Installed Claude plugins and skills','Feature Dev 1.0.1','rust-analyzer 1.0.0','Supabase 0.1.16','Superpowers 7.0.0','Temperance rail mod 0.11.0','ten disabled installations','155 exposed top-level skill entries','not bundled portable defaults','different evidence levels']) assert.ok(copy.includes(phrase),phrase);
   const urls=descendants(details).filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
-  for(const path of ['docs/architecture-explainer.md','CREDITS.md','docs/plans/2026-11-02-claude-tooling-metadata.json']) assert.ok(urls.includes(`https://github.com/Sheshiyer/temperance_engine/blob/d36da98bfc12783aa89710744d84e1046e8fbe4f/${path}`),path);
+  for(const path of ['docs/architecture-explainer.md','CREDITS.md','docs/plans/2026-11-02-claude-tooling-metadata.json']) assert.ok(urls.includes(`https://github.com/Sheshiyer/temperance_engine/blob/75f3de1a765255d9c734c2dcffb087ad9bda9157/${path}`),path);
 });
