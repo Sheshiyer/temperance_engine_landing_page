@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://thoughtseed.space/temperance-engine/sitemap.xml
+Sitemap: https://temperance.thoughtseed.space/sitemap.xml
