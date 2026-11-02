@@ -73,3 +73,18 @@ test('robots and sitemap use the same canonical website',async()=>{
   const sitemap=await readFile(resolve(root,'dist/sitemap.xml'),'utf8');
   assert.ok(sitemap.includes(`<loc>${canonical}</loc>`)); assert.ok(!sitemap.includes('thoughtseed.space/temperance-engine/'));
 });
+
+test('reduced-motion rendering keeps the poster without an inoperative media control',()=>{
+  const previousWindow=globalThis.window;
+  try {
+    globalThis.window={matchMedia:()=>({matches:true})};
+    const reducedNodes=descendants(parse(renderToStaticMarkup(createElement(App))));
+    assert.equal(reducedNodes.filter(n=>n.tagName==='source').length,0);
+    assert.equal(reducedNodes.filter(n=>n.tagName==='button'&&attr(n,'class')==='motion-toggle').length,0);
+    assert.ok(reducedNodes.some(n=>n.tagName==='img'&&attr(n,'class')==='hero-poster'));
+  } finally {
+    if(previousWindow===undefined) delete globalThis.window;
+    else globalThis.window=previousWindow;
+  }
+  assert.equal(content.filter(n=>n.tagName==='button'&&attr(n,'class')==='motion-toggle').length,1);
+});

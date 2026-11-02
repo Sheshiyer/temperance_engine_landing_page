@@ -90,7 +90,7 @@ export default function App() {
         <div className="hero-actions"><a className="button primary" href="#workflow">Explore the workflow <span aria-hidden="true">↗</span></a><a className="button ghost" href="#get-started">Get started</a></div>
         <p className="hero-note">For developers and small teams working across AI coding clients.</p>
       </div>
-      {!mediaFailed && <button className="motion-toggle" type="button" onClick={toggleVideo} aria-label={playing ? "Pause background video" : "Play background video"}>{playing ? "Pause motion" : "Play motion"}</button>}
+      {!mediaFailed && !reduced && <button className="motion-toggle" type="button" onClick={toggleVideo} aria-label={playing ? "Pause background video" : "Play background video"}>{playing ? "Pause motion" : "Play motion"}</button>}
     </section>
     <section id="operating-layer" className="reference-section" aria-labelledby="layer-title">
       <Reveal className="section-heading"><p className="eyebrow">The shared operating layer</p><h2 id="layer-title">The pieces around your agents, working together.</h2><p>Your tools can change. Your projects still need context, a plan, the right capabilities, and a way to check the result.</p></Reveal>

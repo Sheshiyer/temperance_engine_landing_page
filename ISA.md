@@ -113,3 +113,5 @@ Browser and external observations must be filled by the root verifier; no browse
 - ISC-25: `npm test` —6 tests pass,0 failures; includes production build and actual server-rendered App content rather than source-string scaffolding checks.
 - ISC-26: Vite5.4.21 production build —37 modules transformed; built HTML3.11kB, CSS19.47kB, JS272.08kB before gzip.
 - Dependency review: nonbreaking transitive updates reduced npm audit from5 advisories to2 (one moderate, one high) in the required Vite5/esbuild development toolchain. No production dependency advisory was reported. A major Vite migration is outside this visual recovery and remains a separate review item. Development commands bind loopback.
+
+- ISC-31: Source refinement after root IAB probe — reduced motion keeps the poster and omits the disabled media control. New SSR regression passes for reduced mode and preserves the normal-motion pause/play control; actual browser recheck remains root-owned. `npm test`:7/7pass with production build.
