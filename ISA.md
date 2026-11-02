@@ -1,7 +1,7 @@
 ---
 project: Temperance Engine landing page
 phase: build
-progress: 51/58
+progress: 58/66
 mode: algorithm
 updated: 2026-11-02
 ---
@@ -95,9 +95,20 @@ Current portable-core architecture iteration (historical ISC-13..40 remain dated
 - [x] ISC-53: Actual browser at320px has no horizontal overflow and usable selectors/table.
 - [x] ISC-54: Browser keyboard selection preserves focus and updates each interactive view.
 - [x] ISC-55: Browser reduced-motion state retains readable content and no automatic video motion.
-- [ ] ISC-56: New protected preview is verified at the reviewed source without production promotion.
-- [ ] ISC-57: Existing Product Hunt launch readback matches truthful copy and retains November6,12:01AM PST.
+- [x] ISC-56: New protected preview is verified at the reviewed source without production promotion.
+- [x] ISC-57: Existing Product Hunt launch readback matches truthful copy and retains November6,12:01AM PST.
 - [x] ISC-58: Final product slice revision and source matrix are reconciled before preview claims are accepted.
+
+Launch-package alignment extension (founder requests later on November 2):
+
+- [ ] ISC-59: Enhanced film has exactly30seconds at1920×1080 with a verified60fpsmaster.
+- [ ] ISC-60: Website exposes the verified30secondfilm with controls, poster and no automatic audio.
+- [ ] ISC-61: Website explains threePAIworkmodes and effort tiers separately from Claude Code permission controls.
+- [ ] ISC-62: Attributed tooling details distinguish product dependencies, optional services and film/site production tools.
+- [ ] ISC-63: README, explainer, website and Product Hunt use matching evidence-backed release claims.
+- [ ] ISC-64: Actual IAB verifies the final film controls and updated mode/tooling content without console application errors.
+- [ ] ISC-65: Final protected preview is READY at the media/content revision with unchanged production and protection.
+- [ ] ISC-66: Final launch-editor readback preserves November6schedule, identity, website, source, maker, art and tags.
 
 ## Test Strategy
 
@@ -177,3 +188,7 @@ Browser and external observations must be filled by the root verifier; no browse
 - ISC-58: Source review reconciled the matrix with product implementation cf0583e863adba1758aa12b1b53e808087c6e417 and draft PR44. New links pin the capability/provenance matrix, pure phase kernel and injected Vestibule handler at that revision; released links remain pinned42b391b. Other five adapters and host/acceptance gates remain held.
 
 - ISC-52..55: Actual connected Chrome fallback at1494px,320px,390px: all33radio states across six groups each show one selected input and matching visible panel; keyboard ArrowRight updates Vestibule to Adytum with3pxgold focus; no document overflow; architecture list/fourFAQdetails keyboard-open; reduced-motion poster with paused video, zero sources and no motion toggle. Network25responses,zero failures/HTTPerrors; console zero errors/warnings. Browser overrides reset. IAB is unavailable in this delegated chat; queued Codex panel is not an IAB verification. Screenshots and selector report retained in delivery outputs. Kosha mappings now have explicit screen-reader Primary phases text.
+
+- ISC-56: Vercel previewdpl_26QNa7n3WB8xqqiXUUbSRtFdVwSj READY,targetnull,source631d2fe96e5cd0a16378aa5e50d8f179450214f7. ConnectedCodexIABlaterbecameavailable; all33selectorstatesreadbackwithoneselectedinputandmatchingvisiblepanel,320pxdocumentwidth=scrollwidth320,keyboardArrowRightVestibule→Adytum,explicitPrimaryphasestext,reducedmotionposter/videoPaused=true/sources0/no motionbutton. Deployedassetindex-v1E2NNAf.jsmatchestestedbuild. EarlierProductHuntlogwarningretainsitsownoriginandisnotanapplicationpreviewerror. Projectprotectionreadbackremainsssoenabledall_except_custom_domains.
+- ISC-57: SameexistingProductHunteditorSavechangesconfirmedChangessaved;reload422characterdescriptionmatchesreviewedcopy,Nochanges,November6th202612:01AMPSTstillshown. ExistinglinksdialogreadbackretainscanonicalwebsiteandGitHub;AXretainsmaker/art/tags. Noreschedule/publishcontrolused. Laterfounderrequestedmodes/toolingandfilmextension;ISC-66tracksfinalalignmentreadback.
+- 2026-11-02 refined: FounderrequestedactualenhancedfilmviaPhloemconnectedS-tier,andconsistentwebsite/ProductHunt/explainer/READMEupdates. SeparateOpus5.5handoffisnowanexecutionbrief,notcompletionofthenewrenderrequest. OriginaleditableCanvas2D15secondshowreelwasfoundinpublicpackage/showreel;reuseitsvisualsystem.
