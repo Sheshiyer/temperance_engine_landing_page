@@ -1,7 +1,7 @@
 ---
 project: Temperance Engine landing page
-phase: complete
-progress: 28/28
+phase: build
+progress: 51/58
 mode: algorithm
 updated: 2026-11-02
 ---
@@ -28,7 +28,7 @@ Use an isolated codex branch based on5c58383. Recover active JSX rather than the
 
 ## Goal
 
-Deliver a restored React/GSAP website preview with approved operator-system messaging, current metadata, verified local checks and browser observations. The existing Product Hunt draft can receive matching copy only after the preview passes verification, while remaining unscheduled.
+Deliver a restored React/GSAP website preview with approved operator-system messaging, current metadata, verified local checks and browser observations. The existing Product Hunt launch can receive matching copy after preview and claim verification, preserving November 6, 2026, 12:01 AM PST. The expanded source review adds the portable-core architecture experience without accepting host runtime gates.
 
 ## Criteria
 
@@ -78,6 +78,27 @@ Current restoration criteria:
 - [x] ISC-39: Bounded handoff contains preview, exact revisions, holds and rollback instructions.
 - [x] ISC-40: Anti: LumenBar is untouched and runtime holds remain held.
 
+Current portable-core architecture iteration (historical ISC-13..40 remain dated restoration observations; ISC-35 unscheduled evidence was superseded by the owner-confirmed November 6 schedule):
+
+- [x] ISC-41: Rendered page contains all fifteen labelled architecture sections.
+- [x] ISC-42: Single approved H1, cinematic hero, local assets and canonical metadata are preserved.
+- [x] ISC-43: Educational cycle, graph, Kosha, phase, organ and profile selectors expose native radio semantics and complete text panels.
+- [x] ISC-44: Five Koshas map descriptive layers to the seven actual phases without security-boundary claims.
+- [x] ISC-45: Six advisory organs expose responsibilities, dependencies, behavior and source states.
+- [x] ISC-46: Core, personal profile and company integration retain independent ownership.
+- [x] ISC-47: Public claim links pin released source42b391b; new kernel and Vestibule are draft source.
+- [x] ISC-48: Capability matrix distinguishes shipped, draft, held, gap and source/host/acceptance evidence.
+- [x] ISC-49: Anti: no web controls dispatch work, authenticate providers, enable organs or read local stores.
+- [x] ISC-50: Editorial content including every selectable panel remains between2,500 and5,000 words.
+- [x] ISC-51: Build and meaningful server-rendered structure/metadata/evidence tests pass.
+- [ ] ISC-52: Antecedent: actual browser desktop composition remains readable across all sections.
+- [ ] ISC-53: Actual browser at320px has no horizontal overflow and usable selectors/table.
+- [ ] ISC-54: Browser keyboard selection preserves focus and updates each interactive view.
+- [ ] ISC-55: Browser reduced-motion state retains readable content and no automatic video motion.
+- [ ] ISC-56: New protected preview is verified at the reviewed source without production promotion.
+- [ ] ISC-57: Existing Product Hunt launch readback matches truthful copy and retains November6,12:01AM PST.
+- [ ] ISC-58: Final product slice revision and source matrix are reconciled before preview claims are accepted.
+
 ## Test Strategy
 
 ISC-13..27: Node structural and metadata tests, build and source review. ISC-28..32: actual IAB desktop/mobile/keyboard/reduced-motion/console probes. ISC-33..34: Vercel deployment records before and after. ISC-35..36: existing draft reopen/readback. ISC-37..40: scoped diff and handoff review. Source/test results are not browser or production acceptance.
@@ -87,7 +108,11 @@ ISC-13..27: Node structural and metadata tests, build and source review. ISC-28.
 - Cinematic restoration: active React/GSAP source, existing artwork, editorial typography and responsive composition.
 - Operator-system story: approved copy, capability sections, work loop, integrations and getting started.
 - Evidence and discovery: claim map, canonical metadata, meaningful structural checks.
-- Review delivery: verified Vercel preview, matching unscheduled draft and bounded repository handoff.
+- Review delivery: verified Vercel preview, matching scheduled launch copy and bounded repository handoff.
+
+- Architecture explorer | satisfies ISC-41..46 | depends_on restored hero | parallelizable true.
+- Evidence and editorial review | satisfies ISC-47..51 | depends_on product source matrix | parallelizable true.
+- Actual browser and launch verification | satisfies ISC-52..58 | depends_on source checks | root-owned.
 
 ## Decisions
 
@@ -96,12 +121,24 @@ ISC-13..27: Node structural and metadata tests, build and source review. ISC-28.
 - 2026-11-02: Restore active JSX visual identity from736fd13, retain GitHub correction from5c58383, avoid retired TSX and external commercial-font imports.
 - 2026-11-02: Release0.8.0 and compatibility record take precedence over stale README router wording. OmniRoute is the default; legacy9router is not the primary story.
 
+- 2026-11-02 refined: Extend the restored React/GSAP page to the fifteen-section architecture brief. Native radio groups provide keyboard selection; equivalent explanatory panels remain in the DOM with inactive panels hidden.
+- 2026-11-02 refined: Portable product = glove and selected profile = hand in the existing V4 contract. Plain-language UI uses core / personal profile / company integration.
+- 2026-11-02 refined: Product Hunt schedule is November6,2026,12:01AM PST; preserve it. Historical unscheduled checks below are dated evidence, not current instructions.
+- 2026-11-02: Browser, deployment and Product Hunt live checks remain root-owned. This implementation does not claim those probes.
+
 ## Changelog
 
 - 2026-11-02 | conjectured: The two-section installer/inference positioning was suitable for the product launch.
   refuted by: Owner correction and review of the recoverable cinematic site plus broader operator-system source.
   learned: Restore the design separately from rewriting the promise; claims still need released evidence and visible setup boundaries.
   criterion now: ISC-13..40 articulate the restoration and review-only outcome.
+
+
+- 2026-11-02 architecture iteration | conjectured: Five broad feature sections sufficiently explained the operator system.
+  refuted by: Founder requested organs, all five Koshas, infrastructure and the portable/profile distinction as an interactive architecture story.
+  learned: Explain responsibilities and evidence levels together, while keeping interactions educational and source boundaries visible.
+  criterion now: ISC-41..58 define the expanded source, browser and launch proof separately.
+
 
 ## Verification
 
@@ -129,3 +166,10 @@ Browser and external observations must be filled by the root verifier; no browse
 - ISC-38: Cambium proof packet/index and pack reference mark prior copy superseded; historical creation and rejected graph observations remain.
 - ISC-39: .project/HANDOFF.md records exact preview/source, cross-repository review state, checks, holds and rollback.
 - ISC-40: No LumenBar UI or runtime authority changed; all named qualification holds are retained.
+
+### Architecture iteration source verification
+
+- ISC-41..49: Server-rendered App and11 structural/metadata tests inspect all15 sections, six native-radio groups,33 panels, nine capability rows, dependency/ownership copy, pinned source links and absence of effect controls. This is source verification, not actual keyboard/browser acceptance.
+- ISC-50: Automated count includes all hidden panels, captions, controls and disclosures; hard ceiling5,000words. Final automated count:3,498 words including all hidden panels, controls, captions and disclosures.
+- ISC-51: npm test passes Vite production build and11/11 Node tests; actual browser and remote preview remain pending root probes. Build output:HTML3.11kB,CSS30.91kB,JS299.24kB before gzip (final bundle hash may change with source review).
+- Anti: Primary checkout, restored PR1, runtime services/provider configuration/private stores and existing Product Hunt scheduling controls were not changed by this implementation.

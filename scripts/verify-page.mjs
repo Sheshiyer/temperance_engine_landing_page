@@ -35,10 +35,11 @@ test('built head uses one canonical domain and coherent social metadata',()=>{
   assert.equal(schema.name,'Temperance Engine');
   assert.ok(!html.includes('thoughtseed.space/temperance-engine/'));
 });
-test('rendered page has one headline and five labelled product sections',()=>{
+test('rendered page has one headline and all fifteen labelled architecture sections',()=>{
   assert.equal(content.filter(n=>n.tagName==='h1').length,1);
   assert.equal(text(content.find(n=>n.tagName==='h1')),'Give your AI tools a shared way to work.');
-  const sections=content.filter(n=>n.tagName==='section'); assert.equal(sections.length,5);
+  const sections=content.filter(n=>n.tagName==='section'); assert.equal(sections.length,15);
+  assert.deepEqual(sections.map(n=>attr(n,'id')),['top','operating-layer','architecture','koshas','workflow','organs','integrations','core-and-profile','routing','skills','memory','evidence','availability','get-started','faq']);
   for(const section of sections) assert.ok(content.some(n=>attr(n,'id')===attr(section,'aria-labelledby')));
   assert.match(text(content[0]),/AI operator system/);
   assert.ok(!text(content[0]).includes('Local installer for an OpenCode operator runtime'));
@@ -66,7 +67,14 @@ test('release boundaries, optional integrations, and ownership remain explicit',
   const copy=text(content[0]);
   for(const phrase of ['v1.1 clean-host milestone','live hosted-router authentication','qualified long-context sessions','durable checkpoint recovery remain held','PAI','GSD','OmniRoute','opt-in']) assert.ok(copy.includes(phrase),phrase);
   assert.ok(copy.indexOf('Get started')<copy.indexOf('./install.sh'));
-  const list=content.find(n=>n.tagName==='ol'); assert.equal((list.childNodes||[]).filter(n=>n.tagName==='li').length,5);
+  assert.ok(copy.includes('Koshas'));
+  assert.ok(copy.includes('descriptive work layers'));
+  assert.ok(copy.includes('not processes or enforceable security partitions'));
+  assert.ok(copy.includes('Superset and Constellation are retired'));
+  assert.ok(copy.includes('This runner is not a sandbox'));
+  assert.ok(copy.includes('Historical product-graph acceptance remains held'));
+  assert.ok(copy.includes('canonical-memory updates'));
+  assert.ok(copy.includes('source; it is not a claim'));
 });
 test('robots and sitemap use the same canonical website',async()=>{
   assert.match(await readFile(resolve(root,'dist/robots.txt'),'utf8'),/Sitemap: https:\/\/temperance\.thoughtseed\.space\/sitemap.xml/);
@@ -87,4 +95,53 @@ test('reduced-motion rendering keeps the poster without an inoperative media con
     else globalThis.window=previousWindow;
   }
   assert.equal(content.filter(n=>n.tagName==='button'&&attr(n,'class')==='motion-toggle').length,1);
+});
+
+
+test('educational selectors expose a single selected native radio and every target panel',()=>{
+  const groups=content.filter(n=>n.tagName==='fieldset');
+  assert.equal(groups.length,6);
+  const expected={cycle:7,graph:5,kosha:5,phase:7,organ:6,profile:3};
+  for(const [name,count] of Object.entries(expected)) {
+    const radios=content.filter(n=>n.tagName==='input'&&attr(n,'name')===name);
+    assert.equal(radios.length,count,name);
+    assert.equal(radios.filter(n=>n.attrs?.some(a=>a.name==='checked')).length,1,name);
+    for(const radio of radios) {
+      assert.equal(attr(radio,'type'),'radio');
+      const panel=content.find(n=>attr(n,'id')===attr(radio,'aria-controls'));
+      assert.ok(panel,`missing panel for ${name}`);
+      assert.ok(text(panel).trim().length>80,`empty explanation for ${name}`);
+      assert.equal(panel.attrs.some(a=>a.name==='hidden'),!radio.attrs.some(a=>a.name==='checked'));
+    }
+  }
+  assert.equal(content.filter(n=>n.tagName==='form').length,0);
+});
+test('architecture and organ content preserves owners, dependencies and evidence levels',()=>{
+  const copy=text(content[0]);
+  for(const phrase of ['Vestibule','Adytum','Nutrix','Auspex','Circulator','Praeceptor','Annamaya','Pranamaya','Manomaya','Vijnanamaya','Anandamaya','Genesis, Taste, Hands, Will, Cortex and Garden','Cambium owns WorkObjects, Gate, tenant admission and result lineage','portable product the “glove”','selected profile']) assert.ok(copy.includes(phrase),phrase);
+  const table=content.find(n=>n.tagName==='table');
+  const rows=descendants(table).filter(n=>n.tagName==='tr');
+  assert.equal(rows.length,10);
+  for(const state of ['Shipped','Draft','Held','Gap']) assert.ok(text(table).includes(state),state);
+  assert.ok(text(table).includes('Review branch'));
+  assert.ok(copy.includes('Actual-attempt evidence'));
+  assert.ok(copy.includes('No cadence job is activated here'));
+});
+test('editorial body including all selectable panels stays within the architecture brief',()=>{
+  const spacedText=n=>n.nodeName==='#text'?n.value:(n.childNodes||[]).map(spacedText).join(' ');
+  const words=spacedText(content[0]).trim().split(/\s+/).length;
+  assert.ok(words>=2500,`${words} words is below the expanded brief`);
+  assert.ok(words<=5000,`${words} words exceeds the hard ceiling`);
+  console.log(`Architecture editorial count: ${words} words including hidden panels and disclosures`);
+});
+test('source links pin released claims and no controls imply runtime execution',()=>{
+  const links=content.filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
+  const sourceLinks=links.filter(h=>h.includes('/blob/'));
+  assert.ok(sourceLinks.length>8);
+  assert.ok(sourceLinks.every(h=>h.includes('/blob/42b391b44b7655972d9322d87aa3865956a5165e/')));
+  assert.ok(links.includes('https://www.producthunt.com/products/temperance-engine?launch=temperance-engine'));
+  assert.equal(content.filter(n=>n.tagName==='button').length,1);
+  for(const input of content.filter(n=>n.tagName==='input')) assert.equal(attr(input,'type'),'radio');
+  assert.ok(!markup.includes('/Users/'));
+  assert.ok(!markup.includes('127.0.0.1'));
 });

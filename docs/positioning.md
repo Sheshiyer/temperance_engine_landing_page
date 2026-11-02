@@ -46,4 +46,17 @@ Keep v1.1 clean-host qualification, live hosted-router authentication, qualified
 
 ## Review and rollout
 
-This branch is for a Vercel preview. Production must stay at its current deployment until the owner reviews the preview. Root verification must record actual browser and deployment observations in ISA before marking those criteria complete. Product Hunt remains an unscheduled draft. A new website or description does not accept earlier rejected product graphs or remove runtime holds.
+This branch is for a Vercel preview. Production must stay at its current deployment until the owner reviews the preview. Root verification must record actual browser and deployment observations in ISA before marking those criteria complete. The existing Product Hunt launch is scheduled for November 6, 2026, 12:01 AM PST; preserve that schedule. Earlier unscheduled observations are superseded. A new website or description does not accept earlier rejected product graphs or remove runtime holds.
+
+
+## Expanded architecture story — November 2 iteration
+
+The fifteen-section experience starts from the restored cinematic React/GSAP source at7e55a26. It adds native-radio educational selectors for an illustrative task, architecture connections, five Koshas, seven phases, six advisory organs and core/profile/company comparison. All panels are read-only explanations; inactive panels remain available in the DOM and selection neither dispatches work nor reads a local store.
+
+Public baseline remains42b391b / release0.8.0. Composition, lifecycle and phase projection claims link to that exact source. The pure no-profile reconciliation and injected read-only Vestibule orientation adapter are review-branch work, explicitly marked draft. The other five concrete adapters remain held. Root review must reconcile the final product source commit before accepting expanded preview claims.
+
+Koshas classify work, not security boundaries. Advisory organs, onboarding infrastructure modules and Cambium company organs have different owners. The existing V4 contract calls the portable product the glove and a selected profile the hand; the website uses portable core / personal profile / company integration to keep setup choices readable without renaming the contract.
+
+No public source fixture proves installation, actual native callbacks, provider authentication or acceptance. v1.1 clean-host, live hosted auth, qualified long-context and durable recovery remain held. Later containment pressure/process/lock changes are a separate promotion. Superset and Constellation remain retired.
+
+Website source implementation does not update the existing Product Hunt editor, push a branch, deploy a preview or promote production. Root owns those authorized next steps and their readback evidence.
