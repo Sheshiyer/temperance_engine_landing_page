@@ -1,4 +1,6 @@
 export const publicRevision = '42b391b44b7655972d9322d87aa3865956a5165e';
+export const reviewRevision = 'cf0583e863adba1758aa12b1b53e808087c6e417';
+export const reviewRoot = `https://github.com/Sheshiyer/temperance_engine/blob/${reviewRevision}`;
 export const sourceRoot = `https://github.com/Sheshiyer/temperance_engine/blob/${publicRevision}`;
 export const phases = [
   {id:'observe', name:'Observe', sigil:'♄', kosha:'manomaya', input:'A request and selected project evidence', output:'A bounded picture of the current state', intent:'Discover context and relevant skills', proof:'Check provenance and freshness before using the evidence.', example:'Inspect the search component and the project’s accessibility criteria. Record what is known and what still needs a probe.'},

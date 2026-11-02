@@ -74,7 +74,9 @@ test('release boundaries, optional integrations, and ownership remain explicit',
   assert.ok(copy.includes('This runner is not a sandbox'));
   assert.ok(copy.includes('Historical product-graph acceptance remains held'));
   assert.ok(copy.includes('canonical-memory updates'));
-  assert.ok(copy.includes('source; it is not a claim'));
+  assert.ok(copy.includes('Shipped identifies released source.'));
+  assert.ok(copy.includes('separate installation, runtime and acceptance evidence.'));
+  assert.equal(content.filter(n=>n.tagName==='p'&&attr(n,'class')==='sr-only'&&text(n).startsWith('Primary phases:')).length,5);
 });
 test('robots and sitemap use the same canonical website',async()=>{
   assert.match(await readFile(resolve(root,'dist/robots.txt'),'utf8'),/Sitemap: https:\/\/temperance\.thoughtseed\.space\/sitemap.xml/);
@@ -138,7 +140,8 @@ test('source links pin released claims and no controls imply runtime execution',
   const links=content.filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
   const sourceLinks=links.filter(h=>h.includes('/blob/'));
   assert.ok(sourceLinks.length>8);
-  assert.ok(sourceLinks.every(h=>h.includes('/blob/42b391b44b7655972d9322d87aa3865956a5165e/')));
+  assert.ok(sourceLinks.every(h=>/\/blob\/(42b391b44b7655972d9322d87aa3865956a5165e|cf0583e863adba1758aa12b1b53e808087c6e417)\//.test(h)));
+  assert.ok(sourceLinks.some(h=>h.endsWith('/docs/plans/2026-11-02-portable-capabilities.md')));
   assert.ok(links.includes('https://www.producthunt.com/products/temperance-engine?launch=temperance-engine'));
   assert.equal(content.filter(n=>n.tagName==='button').length,1);
   for(const input of content.filter(n=>n.tagName==='input')) assert.equal(attr(input,'type'),'radio');

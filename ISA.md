@@ -91,13 +91,13 @@ Current portable-core architecture iteration (historical ISC-13..40 remain dated
 - [x] ISC-49: Anti: no web controls dispatch work, authenticate providers, enable organs or read local stores.
 - [x] ISC-50: Editorial content including every selectable panel remains between2,500 and5,000 words.
 - [x] ISC-51: Build and meaningful server-rendered structure/metadata/evidence tests pass.
-- [ ] ISC-52: Antecedent: actual browser desktop composition remains readable across all sections.
-- [ ] ISC-53: Actual browser at320px has no horizontal overflow and usable selectors/table.
-- [ ] ISC-54: Browser keyboard selection preserves focus and updates each interactive view.
-- [ ] ISC-55: Browser reduced-motion state retains readable content and no automatic video motion.
+- [x] ISC-52: Antecedent: actual browser desktop composition remains readable across all sections.
+- [x] ISC-53: Actual browser at320px has no horizontal overflow and usable selectors/table.
+- [x] ISC-54: Browser keyboard selection preserves focus and updates each interactive view.
+- [x] ISC-55: Browser reduced-motion state retains readable content and no automatic video motion.
 - [ ] ISC-56: New protected preview is verified at the reviewed source without production promotion.
 - [ ] ISC-57: Existing Product Hunt launch readback matches truthful copy and retains November6,12:01AM PST.
-- [ ] ISC-58: Final product slice revision and source matrix are reconciled before preview claims are accepted.
+- [x] ISC-58: Final product slice revision and source matrix are reconciled before preview claims are accepted.
 
 ## Test Strategy
 
@@ -173,3 +173,7 @@ Browser and external observations must be filled by the root verifier; no browse
 - ISC-50: Automated count includes all hidden panels, captions, controls and disclosures; hard ceiling5,000words. Final automated count:3,498 words including all hidden panels, controls, captions and disclosures.
 - ISC-51: npm test passes Vite production build and11/11 Node tests; actual browser and remote preview remain pending root probes. Build output:HTML3.11kB,CSS30.91kB,JS299.24kB before gzip (final bundle hash may change with source review).
 - Anti: Primary checkout, restored PR1, runtime services/provider configuration/private stores and existing Product Hunt scheduling controls were not changed by this implementation.
+
+- ISC-58: Source review reconciled the matrix with product implementation cf0583e863adba1758aa12b1b53e808087c6e417 and draft PR44. New links pin the capability/provenance matrix, pure phase kernel and injected Vestibule handler at that revision; released links remain pinned42b391b. Other five adapters and host/acceptance gates remain held.
+
+- ISC-52..55: Actual connected Chrome fallback at1494px,320px,390px: all33radio states across six groups each show one selected input and matching visible panel; keyboard ArrowRight updates Vestibule to Adytum with3pxgold focus; no document overflow; architecture list/fourFAQdetails keyboard-open; reduced-motion poster with paused video, zero sources and no motion toggle. Network25responses,zero failures/HTTPerrors; console zero errors/warnings. Browser overrides reset. IAB is unavailable in this delegated chat; queued Codex panel is not an IAB verification. Screenshots and selector report retained in delivery outputs. Kosha mappings now have explicit screen-reader Primary phases text.
