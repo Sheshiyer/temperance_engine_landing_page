@@ -103,7 +103,7 @@ Launch-package alignment extension (founder requests later on November 2):
 
 - [ ] ISC-59: Enhanced film has exactly30seconds at1920×1080 with a verified60fpsmaster.
 - [ ] ISC-60: Website exposes the verified30secondfilm with controls, poster and no automatic audio.
-- [ ] ISC-61: Website explains threePAIworkmodes and effort tiers separately from Claude Code permission controls.
+- [ ] ISC-61: Website explains installed Claude mods, plugins and skills from dated metadata without presenting them as portable-core defaults.
 - [ ] ISC-62: Attributed tooling details distinguish product dependencies, optional services and film/site production tools.
 - [ ] ISC-63: README, explainer, website and Product Hunt use matching evidence-backed release claims.
 - [ ] ISC-64: Actual IAB verifies the final film controls and updated mode/tooling content without console application errors.
@@ -192,3 +192,5 @@ Browser and external observations must be filled by the root verifier; no browse
 - ISC-56: Vercel previewdpl_26QNa7n3WB8xqqiXUUbSRtFdVwSj READY,targetnull,source631d2fe96e5cd0a16378aa5e50d8f179450214f7. ConnectedCodexIABlaterbecameavailable; all33selectorstatesreadbackwithoneselectedinputandmatchingvisiblepanel,320pxdocumentwidth=scrollwidth320,keyboardArrowRightVestibule→Adytum,explicitPrimaryphasestext,reducedmotionposter/videoPaused=true/sources0/no motionbutton. Deployedassetindex-v1E2NNAf.jsmatchestestedbuild. EarlierProductHuntlogwarningretainsitsownoriginandisnotanapplicationpreviewerror. Projectprotectionreadbackremainsssoenabledall_except_custom_domains.
 - ISC-57: SameexistingProductHunteditorSavechangesconfirmedChangessaved;reload422characterdescriptionmatchesreviewedcopy,Nochanges,November6th202612:01AMPSTstillshown. ExistinglinksdialogreadbackretainscanonicalwebsiteandGitHub;AXretainsmaker/art/tags. Noreschedule/publishcontrolused. Laterfounderrequestedmodes/toolingandfilmextension;ISC-66tracksfinalalignmentreadback.
 - 2026-11-02 refined: FounderrequestedactualenhancedfilmviaPhloemconnectedS-tier,andconsistentwebsite/ProductHunt/explainer/READMEupdates. SeparateOpus5.5handoffisnowanexecutionbrief,notcompletionofthenewrenderrequest. OriginaleditableCanvas2D15secondshowreelwasfoundinpublicpackage/showreel;reuseitsvisualsystem.
+
+- 2026-11-02 refined: The founder clarified that “Claude mods” means installed mods, plugins and skills. ISC-61 now verifies that requested inventory story. PAI work modes and Claude permission modes are secondary context, with separate ownership. Metadata came from the Claude CLI and selected manifest fields; no private stores or plugin state were exported.
