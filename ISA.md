@@ -1,7 +1,7 @@
 ---
 project: Temperance Engine landing page
-phase: verify
-progress: 63/66
+phase: complete
+progress: 66/66
 mode: algorithm
 updated: 2026-11-02
 ---
@@ -105,10 +105,10 @@ Launch-package alignment extension (founder requests later on November 2):
 - [x] ISC-60: Website exposes the verified30secondfilm with controls, poster and no automatic audio.
 - [x] ISC-61: Website explains installed Claude mods, plugins and skills from dated metadata without presenting them as portable-core defaults.
 - [x] ISC-62: Attributed tooling details distinguish product dependencies, optional services and film/site production tools.
-- [ ] ISC-63: README, explainer, website and Product Hunt use matching evidence-backed release claims.
+- [x] ISC-63: README, explainer, website and Product Hunt use matching evidence-backed release claims.
 - [x] ISC-64: Actual IAB verifies the final film controls and updated mode/tooling content without console application errors.
-- [ ] ISC-65: Final protected preview is READY at the media/content revision with unchanged production and protection.
-- [ ] ISC-66: Final launch-editor readback preserves November6schedule, identity, website, source, maker, art and tags.
+- [x] ISC-65: Final protected preview is READY at the media/content revision with unchanged production and protection.
+- [x] ISC-66: Final launch-editor readback preserves November6schedule, identity, website, source, maker, art and tags.
 
 ## Test Strategy
 
@@ -195,4 +195,8 @@ Browser and external observations must be filled by the root verifier; no browse
 
 - 2026-11-02 refined: The founder clarified that “Claude mods” means installed mods, plugins and skills. ISC-61 now verifies that requested inventory story. PAI work modes and Claude permission modes are secondary context, with separate ownership. Metadata came from the Claude CLI and selected manifest fields; no private stores or plugin state were exported.
 
-- 2026-11-02 final media/local IAB evidence: master30.000s at1920×1080/60fps/1800decodedframes; web30.000s at1920×1080/30fps/900decodedframes. New controlled player has noautoplay/loop and preloadnone; full localIAB playback reaches ended=true/time30 with no mediaerror. Caption HTMLTrackElement.readyState2 confirms loaded; sixcueVTT validated independently. Actual320CSSpx viewport has scrollWidth320 and visible manualplayer; at reducedmotion hero sources0/paused/noambienttoggle while film staysmanualpaused. Browser console errors/warnings0. Installedplugins disclosure opens and shows currentdatedoptionalprofile distinctions. All13websitechecks plusproductionbuild pass; 3726words includinghiddenpanels/disclosures. Source/CREDITS links now pin complete productmediareview d36da98bfc12783aa89710744d84e1046e8fbe4f. Phloem creative source was not accepted; film is a local review adaptation. Production promotion and runtimeacceptance remain held. Finalprotectedpreview andProductHuntreadback remain pending.
+- 2026-11-02 final media and local IAB evidence: The master has 1,800 decoded frames at 1920×1080 and 60 fps; the web encode has 900 decoded frames at 1920×1080 and 30 fps. Both are 30.000 seconds. The manual player has no autoplay or loop and uses preload="none". Full local IAB playback reaches ended=true at 30 seconds without a media error. The caption track loaded with readyState=2; its six cues were validated independently. At an actual 320 CSS-pixel viewport, scrollWidth is 320. Reduced motion removes ambient hero sources and its motion toggle while the film stays paused and manual. Console errors and warnings: zero. The installed-plugin disclosure opens and preserves dated optional-profile distinctions. All 13 website checks and the production build pass; editorial content is 3,726 words including hidden panels. Source links pin product review d36da98bfc12783aa89710744d84e1046e8fbe4f. The film is a local review adaptation; Phloem creative attribution remains held.
+
+- 2026-11-02 final launch verification, ISC-63 and ISC-66: The same Product Hunt editor saved the 387-character description and showed Changes saved. Reload showed No changes and the exact description. AX readback preserves the name, tagline, one gallery image, Open Source / Developer Tools / GitHub tags, Maker @shesh_iyer and November 6th, 2026, 12:01 AM PST. The Manage links dialog retains https://temperance.thoughtseed.space/ and https://github.com/Sheshiyer/temperance_engine. No schedule, publication or gallery replacement control was used.
+
+- 2026-11-02 final protected preview, ISC-65: Deployment dpl_EHQMSzBwKgp7KLuWP9hyqJ5gQDAR is READY with target=null at content revision 4b8e77fa94c3c2deaa1b9844ddac4ce20a7d58c1. IAB loads index-C9VEXb_r.js and plays the full film to ended=true at 30 seconds, with no media error or console errors/warnings. Descriptive captions are optional. Latest production remains dpl_And7oPASgXBUTCp4asMvMdqPWc3M at 5c5838331b5b8d9207d0c26aeb67dce17e6fe411; protection remains all_except_custom_domains. All 66 website review criteria are complete within preview scope. Product ISC-879 for Phloem S-tier creative delivery remains held; production promotion is outside this scope.
