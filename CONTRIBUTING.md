@@ -21,13 +21,13 @@ The dev server starts at `http://localhost:5173/` with hot module reload.
 ## Code Style
 
 - **React**: Functional components with hooks. `.jsx` extension (TypeScript config present but `.jsx` is the active working format).
-- **CSS**: Tailwind CSS v4 via PostCSS. Custom design tokens live in `src/styles.css` at the `:root` level.
+- **CSS**: Plain CSS with design tokens in `src/styles.css` at the `:root` level; no Tailwind or PostCSS build is required.
 - **Animation**: GSAP + ScrollTrigger for all motion. Use the existing `useGSAP` hook pattern (`@gsap/react`). Respect `prefers-reduced-motion` — the `useReducedMotion` hook is available in `App.jsx`.
 - **Formatting**: No enforced formatter yet. Keep JSX readable — reasonable indentation, consistent quote style.
 
 ### Conventions
 
-- Component-level hooks (typewriter, parallax, reduced-motion) are defined as module-level functions in `App.jsx` — follow this pattern.
+- The reduced-motion hook and GSAP scope are in `App.jsx`; preserve motion cleanup, the poster fallback, and the video pause control when editing animation.
 - Asset paths reference `public/` directory. All product images live in `public/assets/`, brand images in `public/brand/`.
 - The design system uses CSS custom properties (`--font-display`, `--cream`, `--gold`, etc.) — extend these rather than hardcoding values.
 
@@ -38,15 +38,9 @@ npm test
 node scripts/verify-page.mjs
 ```
 
-The verification script runs 44 checks covering:
-- File existence (source files, assets, public docs)
-- SEO metadata (OG, Twitter, JSON-LD, canonical URL)
-- Content assertions (product messaging, brand compliance)
-- Asset integrity (local images only, no borrowed remote domains)
-- Feature detection (GSAP, typewriter, cursor trail, parallax, reveal animations)
-- CSS guardrails (liquid glass, film grain, reduced motion, typography)
+`npm test` builds the production site and runs seven Node tests against the built head and server-rendered React page. They check metadata and canonical URLs, section and anchor integrity, local assets and OG dimensions, optional integrations and release boundaries, robots/sitemap consistency, and the reduced-motion control regression. These checks do not replace browser verification.
 
-**All checks must pass before merging.** The script outputs a PASS/FAIL report — add new checks when introducing features or content.
+Before merging, inspect the built page in the in-app browser at desktop and narrow mobile widths. Verify navigation, keyboard focus, media/poster behavior, reduced motion, console errors and overflow. Keep screenshots local. A preview deploy does not authorize production promotion.
 
 ## PR Process
 
