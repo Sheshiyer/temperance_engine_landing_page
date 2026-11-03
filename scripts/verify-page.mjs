@@ -35,10 +35,10 @@ test('built head uses one canonical domain and coherent social metadata',()=>{
   assert.equal(schema.url,canonical); assert.equal(schema.softwareVersion,'0.8.0');
   assert.equal(schema.name,'Temperance Engine');
   const title=text(nodes.find(n=>n.tagName==='title'));
-  assert.equal(title,'Temperance Engine — From a coding request to a change you can check');
-  assert.equal(title.length,67);
+  assert.equal(title,'Temperance Engine — Bring your client. Keep your flow.');
+  assert.ok(title.length < 75);
   assert.equal(metas.get('og:title'),title);assert.equal(metas.get('twitter:title'),title);
-  assert.equal(metas.get('description').length,160);
+  assert.ok(metas.get('description').length >= 90 && metas.get('description').length <= 170);
   assert.equal(metas.get('og:description'),metas.get('description'));
   assert.equal(metas.get('twitter:description'),metas.get('description'));
   assert.equal(schema.description,metas.get('description'));
@@ -122,33 +122,39 @@ test('architecture film is controlled, non-autoplay and has equivalent caption/t
 
 test('product page has one clear promise and a focused, labelled journey',()=>{
   assert.equal(content.filter(n=>n.tagName==='h1').length,1);
-  assert.equal(text(content.find(n=>n.tagName==='h1')),'From a coding request to a change you can check.');
+  assert.equal(text(content.find(n=>n.tagName==='h1')),'Bring your client. Keep your flow.');
   const hero=content.find(n=>attr(n,'id')==='top');
   const actions=descendants(hero).filter(n=>n.tagName==='a'&&attr(n,'class')?.includes('button'));
-  assert.equal(attr(actions[0],'href'),'#get-started');
-  assert.equal(text(actions[0]),'See the setup steps');
-  assert.equal(text(descendants(hero).find(n=>n.tagName==='a'&&attr(n,'class')==='nav-cta')),'See the setup steps');
-  assert.equal(attr(actions[1],'href'),'#film');
-  const guide=content.find(n=>n.tagName==='a'&&attr(n,'href')==='https://github.com/Sheshiyer/temperance_engine/blob/main/QUICKSTART.md');
-  assert.equal(text(guide),'Read the setup guide ↗');
+  assert.equal(attr(actions[0],'href'),'https://github.com/Sheshiyer/temperance_engine/blob/codex/generic-glove-20261104/docs/generic-engine.md');
+  assert.equal(text(actions[0]),'Read the v2 guide');
+  assert.equal(text(descendants(hero).find(n=>n.tagName==='a'&&attr(n,'class')==='nav-cta')),'Read the v2 guide');
+  assert.equal(attr(actions[1],'href'),'#core');
+  const guide=content.find(n=>n.tagName==='a'&&attr(n,'href')==='https://github.com/Sheshiyer/temperance_engine/blob/codex/generic-glove-20261104/docs/generic-engine.md' && text(n).includes('↗'));
+  assert.equal(text(guide),'Read the v2 guide ↗');
   const sections=content.filter(n=>n.tagName==='section');
-  assert.ok(sections.length>=8 && sections.length<=10);
+  assert.ok(sections.length>=10 && sections.length<=16);
   for(const section of sections) assert.ok(content.some(n=>attr(n,'id')===attr(section,'aria-labelledby')));
-  for(const id of ['operating-layer','workflow','koshas','organs','integrations','get-started','faq']) assert.ok(sections.some(n=>attr(n,'id')===id),id);
+  for(const id of ['operating-layer','core','workflow','koshas','organs','integrations','availability','get-started','faq']) assert.ok(sections.some(n=>attr(n,'id')===id),id);
   const spaced=n=>n.nodeName==='#text'?n.value:(n.childNodes||[]).map(spaced).join(' ');
   const copy=spaced(content[0]); const words=copy.trim().split(/\s+/).length;
   console.log(`Product editorial count: ${words} words including all interactive explanations`);
   // Inclusive markup count includes hidden panels, accessibility labels, navigation and phase pills.
-  assert.ok(words>=1200 && words<=1850,`${words} words outside focused product brief`);
-  assert.doesNotMatch(copy,/source contract|acceptance receipt|synthetic fixtures|sanitized metadata|155 exposed|ten disabled|review branch|canonical.memory/i);
-  assert.ok(!content.some(n=>n.tagName==='table'),'Internal capability matrix must remain in docs');
+  assert.ok(words>=2000 && words<=5000,`${words} words outside expanded editorial brief`);
+  assert.doesNotMatch(copy,/sanitized metadata|155 exposed|ten disabled|canonical.memory/i);
+  const table=content.find(n=>n.tagName==='table'&&attr(n,'class')==='availability-table');
+  assert.ok(table); assert.match(text(table),/Qualification targets/);
+  const ids=sections.map(n=>attr(n,'id'));
+  assert.ok(ids.indexOf('core') < ids.indexOf('film-example'));
+  assert.ok(ids.indexOf('workflow') < ids.indexOf('film-example'));
+  assert.ok(ids.indexOf('availability') < ids.indexOf('get-started'));
+  assert.match(text(hero),/v2 source preview/);
 });
 test('work phases, Koshas and advisory roles keep complete native keyboard selectors',()=>{
-  assert.equal(content.filter(n=>n.tagName==='fieldset').length,3);
-  for(const [name,count] of Object.entries({phase:7,kosha:5,organ:6})) {
+  assert.equal(content.filter(n=>n.tagName==='fieldset').length,7);
+  for(const [name,count] of Object.entries({composition:3,workflow:3,'step-editorial':3,'step-incident':4,'step-alchemy':7,kosha:5,organ:6})) {
     const radios=content.filter(n=>n.tagName==='input'&&attr(n,'name')===name);
     assert.equal(radios.length,count,name);
-    assert.equal(radios.filter(n=>n.attrs.some(a=>a.name==='checked')).length,1);
+    assert.equal(radios.filter(n=>n.attrs.some(a=>a.name==='checked')).length,['step-incident','step-alchemy'].includes(name)?0:1);
     for(const radio of radios) {
       assert.equal(attr(radio,'type'),'radio');
       const panel=content.find(n=>attr(n,'id')===attr(radio,'aria-controls'));
@@ -165,9 +171,9 @@ test('curated links and Product Hunt badge support evaluation without invented p
   assert.ok(links.length<=18,`Expected curated links, found ${links.length}`);
   const badge=links.find(n=>attr(n,'class')?.includes('product-hunt-badge'));
   assert.ok(badge);assert.equal(attr(badge,'href'),'https://www.producthunt.com/products/temperance-engine?launch=temperance-engine');
-  assert.equal(text(badge),'Find us on Product Hunt');
+  assert.equal(text(badge),'View the launch listing');
   const widget=content.find(n=>attr(n,'class')==='product-hunt-widget');
-  assert.match(text(widget),/November 6|Nov 6/);
+  assert.doesNotMatch(text(widget),/November 6|Nov 6/);
   const badgeImages=descendants(badge).filter(n=>n.tagName==='img');
   assert.equal(badgeImages.length,1);
   const official=badgeImages[0];
@@ -177,7 +183,7 @@ test('curated links and Product Hunt badge support evaluation without invented p
   assert.equal(new URL(attr(official,'src')).searchParams.get('post_id'),'1301098');
   assert.equal(attr(official,'width'),'250');assert.equal(attr(official,'height'),'54');
   assert.equal(attr(official,'alt'),'');
-  assert.ok(descendants(badge).some(n=>attr(n,'class')==='product-hunt-fallback'&&text(n)==='Find us on Product Hunt'),'Persistent text remains when remote badge cannot load');
+  assert.ok(descendants(badge).some(n=>attr(n,'class')==='product-hunt-fallback'&&text(n)==='View the launch listing'),'Persistent text remains when remote badge cannot load');
   assert.doesNotMatch(text(badge),/upvotes|#1|top product|product of the day/i);
   for(const link of links) assert.doesNotMatch(attr(link,'href'),/docs\/plans|metadata\.json|\/package\/router|\/src\//);
   assert.equal(content.filter(n=>n.tagName==='form').length,0);

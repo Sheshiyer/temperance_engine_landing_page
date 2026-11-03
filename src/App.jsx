@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { benefits, phases, koshas, organs, integrations, faqs, pageCopy } from "./architecture-data.js";
+import { benefits, phases, koshas, organs, integrations, faqs, pageCopy, workflows, compositions, availability } from "./architecture-data.js";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-const github = "https://github.com/Sheshiyer/temperance_engine";
+const github = "https://github.com/Sheshiyer/temperance_engine/tree/codex/generic-glove-20261104";
+const guide = "https://github.com/Sheshiyer/temperance_engine/blob/codex/generic-glove-20261104/docs/generic-engine.md";
 const poster = "/assets/temperance-hero-poster.png";
 const video = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4";
 function Reveal({ children, className = "", delay = 0 }) {
@@ -34,7 +35,9 @@ export default function App() {
   const reduced = useReducedMotion();
   const [playing, setPlaying] = useState(false);
   const [kosha, setKosha] = useState('manomaya');
-  const [phase, setPhase] = useState('observe');
+  const [workflow, setWorkflow] = useState('editorial');
+  const [flowStep, setFlowStep] = useState('draft');
+  const [composition, setComposition] = useState('core');
   const [organ, setOrgan] = useState('vestibule');
   const [mediaFailed, setMediaFailed] = useState(false);
   useEffect(() => {
@@ -70,13 +73,13 @@ export default function App() {
       <nav className="topbar liquid-glass" aria-label="Primary navigation">
         <a className="brand-mark" href="#top" aria-label="Temperance Engine home"><img className="brand-icon" src="/brand/te-mark.png" alt="" width="38" height="38" /><span>Temperance Engine</span></a>
         <div className="nav-links"><a href="#operating-layer">{pageCopy.navigation.systemLink}</a><a href="#workflow">{pageCopy.navigation.workflowLink}</a><a href="#integrations">{pageCopy.navigation.integrationsLink}</a></div>
-        <a className="nav-cta" href="#get-started">{pageCopy.navigation.startLink}</a>
+        <a className="nav-cta" href={guide}>{pageCopy.navigation.startLink}</a>
       </nav>
       <div className="hero-content">
         <p className="eyebrow hero-eyebrow">{pageCopy.hero.eyebrow}</p>
         <h1 id="hero-title">{pageCopy.hero.headline}</h1>
         <p className="hero-subtitle">{pageCopy.hero.subhead}</p>
-        <div className="hero-actions"><a className="button primary" href="#get-started">{pageCopy.hero.primaryCTA}</a><a className="button ghost" href="#film">{pageCopy.hero.secondaryCTA}</a></div>
+        <div className="hero-actions"><a className="button primary" href={guide}>{pageCopy.hero.primaryCTA}</a><a className="button ghost" href="#core">{pageCopy.hero.secondaryCTA}</a></div>
         <p className="hero-note">{pageCopy.hero.note}</p>
       </div>
       {!mediaFailed && !reduced && <button className="motion-toggle" type="button" onClick={toggleVideo} aria-label={playing ? "Pause background video" : "Play background video"}>{playing ? "Pause motion" : "Play motion"}</button>}
@@ -84,8 +87,32 @@ export default function App() {
     <section id="operating-layer" className="architecture-section product-overview" aria-labelledby="overview-title">
       <Heading eyebrow={pageCopy.overview.eyebrow} title={<span id="overview-title">{pageCopy.overview.headline}</span>}>{pageCopy.overview.intro}</Heading>
       <div className="benefit-grid">{benefits.map((item,i)=><Reveal className="benefit-card" key={item.id}><span className="benefit-number">0{i+1}</span><h3>{item.name}</h3><p>{item.copy}</p></Reveal>)}</div>
+
+    </section>
+    <section id="core" className="architecture-section" aria-labelledby="core-title">
+      <Heading eyebrow="Core, modules and profiles" title={<span id="core-title">Choose the parts for your setup.</span>}>Keep the common lifecycle in the engine. Select the clients, workflow and services at the boundary. Explore the three layers below.</Heading>
+      <p className="owner-definition">An owner is the tool, service or policy responsible for a plan, approval, action or acceptance decision.</p>
+      <div className="neutral-graph" aria-label="Client adapter, engine contracts and external workflow owner">
+        <article className="integration-card liquid-glass"><p className="eyebrow">Replaceable connector</p><h3>Client adapter</h3><p>Translates a supported client's events into the selected workflow's references. No coding client is needed to inspect the core.</p></article>
+        <article className="integration-card liquid-glass"><p className="eyebrow">Shared engine</p><h3>Lifecycle and receipts</h3><p>Checks the selected module, dependencies, owner approval and result. Records references and digests without choosing the next step.</p></article>
+        <article className="integration-card liquid-glass"><p className="eyebrow">Your process</p><h3>External workflow owner</h3><p>Chooses the sequence, branches and stop rules. Planning, execution and acceptance keep their own owners.</p></article>
+      </div>
+      <Choices label="Composition layer" name="composition" items={compositions} selected={composition} onChange={setComposition} />
+      <div className="composition-inspector liquid-glass">{compositions.map(item=><Panel key={item.id} name="composition" id={item.id} selected={composition}><p className="eyebrow">{item.name}</p><h3>{item.title}</h3><p>{item.copy}</p><ul>{item.parts.map(part=><li key={part}>{part}</li>)}</ul></Panel>)}</div>
+    </section>
+    <section id="workflow" className="architecture-section" aria-labelledby="workflow-title">
+      <Heading eyebrow={pageCopy.workflow.eyebrow} title={<span id="workflow-title">{pageCopy.workflow.headline}</span>}>{pageCopy.workflow.intro}</Heading>
+      <Choices label="External workflow example" name="workflow" items={workflows} selected={workflow} onChange={id=>{setWorkflow(id);setFlowStep(workflows.find(item=>item.id===id).steps[0].id);}} />
+      {workflows.map(flow=><Panel key={flow.id} name="workflow" id={flow.id} selected={workflow}>
+        <p className="example-caption">Read-only example · {flow.name}</p>
+        <Choices label={flow.name+" step"} name={"step-"+flow.id} items={flow.steps} selected={flowStep} onChange={setFlowStep} />
+        <div className="phase-inspector liquid-glass">{flow.steps.map((item,i)=><Panel key={item.id} name={"step-"+flow.id} id={item.id} selected={flowStep}><div className="phase-story"><div className="phase-story-mark"><span aria-hidden="true">{item.sigil || "↗"}</span><small>{String(i+1).padStart(2,"0")} / {String(flow.steps.length).padStart(2,"0")}</small></div><div><p className="eyebrow">{item.name}</p><h3>{item.headline}</h3><p>{item.copy}</p><div className="task-example"><span>{pageCopy.workflow.exampleLabel}</span><p>{item.detail}</p></div></div></div></Panel>)}</div>
+      </Panel>)}
+      <p className="example-caption">In these examples, Temperance checks the module pin, current dependencies, task and step identity, approval for a write, and the recorded result. An expired approval would hold the action.</p>
+    </section>
+    <section id="film-example" className="architecture-section" aria-labelledby="architecture-film-title">
       <figure id="film" className="architecture-film liquid-glass" aria-labelledby="architecture-film-title">
-        <div className="film-heading"><p className="eyebrow">{pageCopy.film.eyebrow}</p><h3 id="architecture-film-title">{pageCopy.film.headline}</h3><p id="architecture-film-description">{pageCopy.film.intro}</p></div>
+        <div className="film-heading"><p className="eyebrow">{pageCopy.film.eyebrow}</p><h2 id="architecture-film-title">{pageCopy.film.headline}</h2><p id="architecture-film-description">{pageCopy.film.intro}</p></div>
         <video className="architecture-film-player" controls playsInline preload="none" width="1920" height="1080" poster="/assets/temperance-architecture-30s-poster.jpg" aria-labelledby="architecture-film-title" aria-describedby="architecture-film-description">
           <source src="/assets/temperance-architecture-30s.mp4" type="video/mp4" />
           <track kind="captions" src="/assets/temperance-architecture-30s-captions.vtt" srcLang="en" label="English descriptive captions" />
@@ -93,11 +120,6 @@ export default function App() {
         </video>
         <figcaption><span>{pageCopy.film.figcaption}</span><a href="/assets/temperance-architecture-30s-transcript.md">{pageCopy.film.transcriptLink}</a></figcaption>
       </figure>
-    </section>
-    <section id="workflow" className="architecture-section" aria-labelledby="workflow-title">
-      <Heading eyebrow={pageCopy.workflow.eyebrow} title={<span id="workflow-title">{pageCopy.workflow.headline}</span>}>{pageCopy.workflow.intro}</Heading>
-      <Choices label="Work phase" name="phase" items={phases} selected={phase} onChange={setPhase} />
-      <div className="phase-inspector liquid-glass">{phases.map((item,i)=><Panel key={item.id} name="phase" id={item.id} selected={phase}><div className="phase-story"><div className="phase-story-mark"><span aria-hidden="true">{item.sigil}</span><small>0{i+1} / 07</small></div><div><p className="eyebrow">{item.name}</p><h3>{item.headline}</h3><p>{item.copy}</p><div className="task-example"><span>{pageCopy.workflow.exampleLabel}</span><p>{item.detail}</p></div></div></div></Panel>)}</div>
     </section>
     <section id="koshas" className="architecture-section kosha-section" aria-labelledby="koshas-title">
       <Heading eyebrow={pageCopy.koshas.eyebrow} title={<span id="koshas-title">{pageCopy.koshas.headline}</span>}>{pageCopy.koshas.intro}</Heading>
@@ -112,17 +134,22 @@ export default function App() {
       <Heading eyebrow={pageCopy.integrations.eyebrow} title={<span id="integrations-title">{pageCopy.integrations.headline}</span>}>{pageCopy.integrations.intro}</Heading>
       <div className="integration-grid">{integrations.map(item=><article className="integration-card liquid-glass" key={item.id}><h3>{item.name}</h3><p>{item.copy}</p></article>)}</div>
     </section>
+    <section id="availability" className="architecture-section" aria-labelledby="availability-title">
+      <Heading eyebrow="Availability and evidence" title={<span id="availability-title">See what you can evaluate today.</span>}>This page introduces the neutral v2 source preview. Public release follows the engine's acceptance criteria; each optional adapter keeps its own support evidence.</Heading>
+      <div className="availability-scroll" role="region" aria-label="Capability and qualification matrix" tabIndex="0"><table className="availability-table"><caption>Current source preview and qualification targets</caption><thead><tr><th scope="col">Capability</th><th scope="col">Availability</th><th scope="col">What to check</th></tr></thead><tbody>{availability.map(item=><tr key={item.capability}><th scope="row">{item.capability}</th><td>{item.state}</td><td>{item.detail}</td></tr>)}</tbody></table></div>
+    </section>
     <section id="get-started" className="architecture-section" aria-labelledby="start-title">
       <Heading eyebrow={pageCopy.getStarted.eyebrow} title={<span id="start-title">{pageCopy.getStarted.headline}</span>}>{pageCopy.getStarted.intro}</Heading>
-      <div className="closing-grid"><div className="setup-copy"><h3>{pageCopy.getStarted.guideHeading}</h3><p>{pageCopy.getStarted.guideBody}</p><a className="button primary" href="https://github.com/Sheshiyer/temperance_engine/blob/main/QUICKSTART.md">{pageCopy.getStarted.primaryCTA}</a><a className="text-link" href={github}>{pageCopy.getStarted.secondaryCTA}</a></div><div className="setup-panel liquid-glass"><p className="eyebrow">{pageCopy.getStarted.previewEyebrow}</p><pre><code>{"git clone https://github.com/Sheshiyer/temperance_engine.git\ncd temperance_engine\n./install.sh --dry-run --skip-voice"}</code></pre><p>{pageCopy.getStarted.previewBody}</p></div></div>
+      <div className="closing-grid"><div className="setup-copy"><h3>{pageCopy.getStarted.guideHeading}</h3><p>{pageCopy.getStarted.guideBody}</p><a className="button primary" href={guide}>{pageCopy.getStarted.primaryCTA}</a><a className="text-link" href={github}>{pageCopy.getStarted.secondaryCTA}</a></div><div className="setup-panel liquid-glass"><p className="eyebrow">{pageCopy.getStarted.previewEyebrow}</p><pre><code>{"git clone --branch codex/generic-glove-20261104 https://github.com/Sheshiyer/temperance_engine.git\ncd temperance_engine\nbun package/install-surface/src/composition/engine-cli.ts doctor --json"}</code></pre><p>{pageCopy.getStarted.previewBody}</p></div></div>
     </section>
     <section id="faq" className="architecture-section faq-section" aria-labelledby="faq-title">
       <Heading eyebrow={pageCopy.faq.eyebrow} title={<span id="faq-title">{pageCopy.faq.headline}</span>}>{pageCopy.faq.intro}</Heading>
       <div className="faq-list">{faqs.map(item=><details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
-      <a className="text-link" href="https://github.com/Sheshiyer/temperance_engine/blob/main/docs/COMPATIBILITY.md">{pageCopy.faq.compatibilityCTA}</a>
+      <a className="text-link" href={guide+"#qualification"}>{pageCopy.faq.compatibilityCTA}</a>
     </section>
     <section id="launch" className="architecture-section launch-section" aria-labelledby="launch-title">
       <div className="launch-copy"><p className="eyebrow">{pageCopy.launch.eyebrow}</p><h2 id="launch-title">{pageCopy.launch.headline.split('\n').map((line,i)=><span key={line}>{i>0 && <br />}{line}</span>)}</h2><p>{pageCopy.launch.intro}</p></div>
+      <a className="button primary" href={guide}>Read the v2 guide ↗</a>
       <div className="product-hunt-widget"><p className="eyebrow">{pageCopy.launch.badgeEyebrow}</p><a className="product-hunt-badge" href="https://www.producthunt.com/products/temperance-engine?launch=temperance-engine"><img className="product-hunt-official" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1301098&theme=light" width="250" height="54" alt="" loading="lazy" /><span className="product-hunt-fallback">{pageCopy.launch.badgeCTA}</span></a></div>
       <footer className="site-footer"><a className="footer-brand" href="https://thoughtseed.space/" aria-label="Visit Thoughtseed"><img className="footer-lockup" src="/brand/thoughtseed-logo-lockup.png" alt="Thoughtseed" width="240" height="60" loading="lazy" /></a><p>{pageCopy.footer.attribution}</p><a href={github}>{pageCopy.footer.githubCTA}</a></footer>
     </section>

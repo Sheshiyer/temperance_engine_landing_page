@@ -29,7 +29,7 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
   background: var(--bg);
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
@@ -410,4 +410,20 @@ h1 { max-width:11.5ch; font-style:italic; font-weight:400; font-size:clamp(4rem,
 @media(max-width:1000px) { .hero-content { margin-left:0; } .benefit-grid { gap:24px; } .integration-grid { grid-template-columns:1fr; } .integration-card { display:grid; grid-template-columns:1fr 1.5fr; gap:30px; align-items:center; } .integration-card h3 { margin:0; } .integration-card p { margin:0; } .closing-grid { gap:30px; } }
 @media(max-width:720px) { .hero-cinema { padding:14px 16px 42px; } h1 { font-size:clamp(3.15rem,14vw,5rem); } .hero-content { padding:60px 0; } .hero-subtitle { line-height:1.65; } .brand-mark { font-size:.65rem; gap:7px; letter-spacing:.03em; } .brand-icon { width:32px; height:32px; } .nav-cta { font-size:.64rem; padding:0 14px; } .topbar { gap:9px; padding-left:10px; } .nav-links { display:none; } .architecture-section { padding:72px 20px; } .section-heading { margin-bottom:30px; } .benefit-grid,.kosha-layout,.closing-grid { grid-template-columns:1fr; gap:28px; } .benefit-grid { margin:36px 0 48px; } .film-heading { padding:22px 20px 18px; } .architecture-film figcaption { padding:18px 20px; } .choice span { font-size:.72rem; min-height:44px; padding:10px 13px; } .phase-inspector,.organ-inspector { padding:26px; } .phase-story { grid-template-columns:1fr; gap:22px; } .phase-story-mark { flex-direction:row; justify-content:space-between; padding:0; } .phase-story-mark > span { font-size:3.5rem; } .kosha-layout > .choices { display:flex; gap:8px; } .kosha-layout .choice { border:1px solid var(--line); border-radius:8px; } .kosha-layout .choice span { min-height:44px; padding:10px 12px; font-family:var(--font-body); font-size:.75rem; } .organ-inspector > .explorer-panel { grid-template-columns:1fr; gap:12px; } .organ-number { font-size:3.5rem; } .integration-card { display:block; padding:26px; } .integration-card h3 { margin-bottom:18px; } .setup-panel { padding:26px; } .setup-copy .button { font-size:.8rem; } .faq-list summary { font-size:1.25rem; } .product-hunt-badge { padding:16px; gap:12px; } .site-footer { flex-direction:column; align-items:center; text-align:center; margin-top:64px; } }
 @media(max-width:420px) { .brand-mark { min-width:0; } .brand-mark span { max-width:10ch; line-height:1.35; } .brand-icon { flex-shrink:0; } .nav-cta { flex-shrink:0; padding:0 10px; letter-spacing:.04em; } }
+@media(max-width:340px) { .brand-mark { gap:5px; font-size:.55rem; } .brand-icon { width:26px; height:26px; } .nav-cta { font-size:.57rem; padding-inline:8px; } .topbar { gap:6px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none !important; transition:none !important; } .cinematic-video { display:none; } .reveal { opacity:1; transform:none; } .button:hover,.product-hunt-badge:hover { transform:none; } }
+
+/* Neutral composition examples reuse the cinematic visual system. */
+.neutral-graph { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:2rem 0; }
+.composition-inspector { padding:clamp(1.3rem,4vw,3rem); margin-top:1.25rem; }
+.composition-inspector p { max-width:70ch; }
+.composition-inspector ul { padding-left:1.25rem; line-height:1.8; }
+.example-caption { margin:1.4rem 0 .4rem; opacity:.75; }
+.availability-scroll { max-width:100%; overflow-x:auto; border:1px solid rgba(224,192,123,.23); border-radius:16px; }
+.availability-table { width:100%; border-collapse:collapse; text-align:left; font-size:.95rem; line-height:1.65; }
+.availability-table caption { padding:1rem; text-align:left; }
+.availability-table th,.availability-table td { padding:1rem 1.2rem; vertical-align:top; border-top:1px solid rgba(224,192,123,.16); }
+.availability-table thead { color:#e6ce9c; }
+.availability-table th:first-child { min-width:10rem; }
+.availability-scroll:focus-visible { outline:2px solid #e6ce9c; outline-offset:5px; }
+@media (max-width:760px) { .neutral-graph { grid-template-columns:1fr; } .availability-table { min-width:36rem; } }

@@ -1,5 +1,15 @@
 # Product Marketing Context
 
+## Current boundary — 2026-11-04
+
+The approved generic-glove plan supersedes the fixed-flow and default-gateway statements in the historical foundation below. Temperance Engine is client- and flow-agnostic. External workflows own their sequence; profiles choose clients, infrastructure and policies. The core can inspect itself without a personal profile, coding client, router or memory service.
+
+The six organs form an optional reusable public pack. Noesis Cambium is a separate personalised profile designed to pin a reviewed engine release. Its Alchemy flow, required OmniRoute and memory, trigger policy and personal bindings belong to that profile. Engine and profile acceptance are independent.
+
+Lead the expanded site with neutral examples. Label the v2 source preview next to the main guide CTA. Codex CLI and Claude Code are the first optional adapter qualification targets; source fixtures do not establish actual callbacks or cross-platform installation acceptance. Public release follows engine acceptance. The Product Hunt schedule must be checked through its owning interface; do not infer unscheduling from this brief.
+
+## Historical marketing foundation — 2026-11-02
+
 Last updated: 2026-11-02. Status: evidence-led V1 foundation, prepared by the custom Positioning Strategist for writer and editor review. This is a strategy brief, not approved final website copy.
 
 ## Asset decision
